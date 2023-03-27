@@ -37,7 +37,7 @@ class CryptoTrade:
         #Get the buying power from account
         buying_power = float(self.account.buying_power)
 
-        #intialize the last trade price as current price
+        #Intialize the last trade price as current price
         last_trade_price = self.api.get_latest_crypto_trade(ticker, 'BNCU').price
 
         if last_trade_price is not None:
@@ -80,7 +80,6 @@ class CryptoTrade:
 
 
 if __name__ == '__main__':
-    should_stop = threading.Event()
     crypt_trade = CryptoTrade()
     print("grid trading start")
     crypt_trade.run_trade('BTCUSD',28000,27000,0.0001,0.1)
