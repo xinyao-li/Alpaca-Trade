@@ -19,23 +19,11 @@ class CryptoTrade:
     '''
 
     # Function to generate a list of all bought trade you made and sort by buy in price
-    def calculate_buy_history(self, ticker):
-        orders = self.api.list_orders(status='filled')
-        order_list = []
-        for order in orders:
-            cur_hold = Hold()
-            symbol = order.symbol.replace('/', '')
-            if symbol == ticker and order.side == 'buy':
-                cur_hold.set_symbol(symbol)
-                cur_hold.set_qty(order.qty)
-                cur_hold.set_filled_avg_price(order.filled_avg_price)
-                order_list.append(cur_hold)
-        order_list = sorted(order_list, key=lambda h: h._filled_avg_price, reverse=False)
-        return order_list
-
     def grid_trading(self, ticker, high, low, percentage, buying_power_percentage, should_stop):
         #Get the buying power from account
         buying_power = float(self.account.buying_power)
+        total_profit = buying_power
+        holding_amount = 0
 
         #Intialize the last trade price as current price
         last_trade_price = self.api.get_latest_crypto_trade(ticker, 'BNCU').price
@@ -55,18 +43,24 @@ class CryptoTrade:
                 if cur_price is not None and cur_price <= high and cur_price >= low:
                     if cur_price <= last_trade_price*(1 - percentage):
                         try:
-                            self.api.submit_order(ticker, buying_power*buying_power_percentage/cur_price, 'buy', 'market', time_in_force='gtc')
-                            print("Bought " + str(buying_power*buying_power_percentage/cur_price) + " of "+str(ticker)+" at price: "+str(cur_price))
+                            buying_amount = buying_power*buying_power_percentage/cur_price
+                            self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
+                            print("Bought " + str(buying_amount) + " of "+str(ticker)+" at price: "+str(cur_price))
                             last_trade_price = cur_price
                             buying_power = float(self.account.buying_power)
+                            holding_amount += buying_amount
                         except Exception as e:
                             logging.exception("Buy Order submission failed")
                     elif cur_price >= last_trade_price*(1 + percentage):
                         try:
-                            self.api.submit_order(ticker, buying_power*buying_power_percentage/cur_price, 'sell', 'market', time_in_force='gtc')
-                            print("Sold " + str(buying_power*buying_power_percentage/cur_price) + " of " + str(ticker) + " at price: " + str(cur_price))
+                            selling_amount = buying_power * buying_power_percentage / cur_price
+                            if holding_amount < selling_amount:
+                                selling_amount = holding_amount
+                            self.api.submit_order(selling_amount, 'sell', 'market', time_in_force='gtc')
+                            print("Sold " + str(selling_amount) + " of " + str(ticker) + " at price: " + str(cur_price))
                             last_trade_price = cur_price
                             buying_power = float(self.account.buying_power)
+                            holding_amount -= selling_amount
                         except Exception as e:
                             logging.exception("Sell Order submission failed")
                 time.sleep(1)
