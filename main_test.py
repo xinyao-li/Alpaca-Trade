@@ -52,8 +52,7 @@ class CryptoTradeTest:
                     print('total earn is: $' + str(buying_power - total_profit + holding_amount * last_trade_price))
                 #time.sleep(1)
             try:
-                date = str(data.iloc[i][1]).split('-')
-                result.append([str(data.iloc[i][1]), cur_price, buying_power - total_profit + holding_amount * last_trade_price])
+                result.append([str(data.iloc[i][1]), cur_price, (buying_power - total_profit + holding_amount * last_trade_price)/total_profit*100])
             except Exception as e:
                 logging.exception("")
         print('total profit in % is: '+str((buying_power - total_profit + holding_amount * last_trade_price)/total_profit*100)+'%')
@@ -74,7 +73,7 @@ if __name__ == '__main__':
     # Set the title, labels and legend
     plt.title('Bitcoin market regression test Feb 2023')
     plt.xlabel('Date', fontsize=18)
-    plt.ylabel('Price USD ($)', fontsize=18)
+    plt.ylabel('Total profit in %', fontsize=18)
     plt.legend()
 
     # Show the plot
