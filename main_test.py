@@ -17,7 +17,7 @@ class CryptoTradeTest:
         holding_amount = 0
         result = []
 
-        for i, row in reversed(list(enumerate(data.itertuples(), start=1))):
+        for i, row in reversed(list(enumerate(data.itertuples(), start=0))):
             #get the current price of ticker in Binance in every 1 sec
             cur_price = None
             try:
