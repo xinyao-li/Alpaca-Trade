@@ -23,10 +23,10 @@ class CryptoTrade:
         #Get the buying power from account
         buying_power = float(self.account.buying_power)
         total_profit = buying_power
-        holding_amount = 0
+        holding_amount = config.holding_amount
 
-        #Intialize the last trade price as current price
-        last_trade_price = self.api.get_latest_crypto_trade(ticker, 'BNCU').price
+        #Intialize the last trade price to close price of previous open date
+        last_trade_price = config.last_trade_price
 
         if last_trade_price is not None:
             while not should_stop.is_set():
@@ -36,6 +36,7 @@ class CryptoTrade:
                     cur_price = self.api.get_latest_crypto_trade(ticker, 'BNCU').price
                     print("current price is: " + str(cur_price))
                 except Exception as e:
+                    print('last trade price is: '+last_trade_price)
                     logging.exception("No such ticker or fail to get price")
 
                 #If the price is in range low to high, if the price drop 'percentage' then buy, else if price reach 'percentage' then sell
@@ -50,6 +51,7 @@ class CryptoTrade:
                             buying_power = float(self.account.buying_power)
                             holding_amount += buying_amount
                         except Exception as e:
+                            print('last trade price is: ' + last_trade_price)
                             logging.exception("Buy Order submission failed")
                     elif cur_price >= last_trade_price*(1 + percentage):
                         try:
@@ -62,6 +64,7 @@ class CryptoTrade:
                             buying_power = float(self.account.buying_power)
                             holding_amount -= selling_amount
                         except Exception as e:
+                            print('last trade price is: ' + last_trade_price)
                             logging.exception("Sell Order submission failed")
                 time.sleep(1)
 
