@@ -5,7 +5,6 @@ import config
 import datetime as dt
 import logging
 import time
-from holds import Hold
 
 class CryptoTrade:
     # Instantiate REST API Connection
@@ -87,5 +86,5 @@ class CryptoTrade:
 if __name__ == '__main__':
     crypt_trade = CryptoTrade()
     print("grid trading start")
-    crypt_trade.run_trade('BTCUSD',29000,27000,0.001,0.1)
+    crypt_trade.run_trade('BTCUSD',30000,26000,0.001,0.1)
 
