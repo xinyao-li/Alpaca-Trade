@@ -27,6 +27,8 @@ class CryptoTrade:
 
         #Intialize the last trade price to close price of previous open date
         last_trade_price = config.last_trade_price
+        print('last trade price is: ' + str(last_trade_price))
+        print('holding amount is: ' + str(holding_amount))
 
         if last_trade_price is not None:
             while not should_stop.is_set():
@@ -48,25 +50,31 @@ class CryptoTrade:
                             self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
                             print("Bought " + str(buying_amount) + " of "+str(ticker)+" at price: "+str(cur_price))
                             last_trade_price = cur_price
+                            print('last trade price is: ' + str(last_trade_price))
                             buying_power = float(self.account.buying_power)
                             holding_amount += buying_amount
                         except Exception as e:
-                            print('last trade price is: ' + last_trade_price)
+                            print('last trade price is: ' + str(last_trade_price))
                             logging.exception("Buy Order submission failed")
+                        print('total earn is: $' + str(buying_power - total_profit + holding_amount * last_trade_price))
                     elif cur_price >= last_trade_price*(1 + percentage):
                         try:
                             selling_amount = buying_power * buying_power_percentage / cur_price
                             if holding_amount < selling_amount:
                                 selling_amount = holding_amount
-                            self.api.submit_order(selling_amount, 'sell', 'market', time_in_force='gtc')
-                            print("Sold " + str(selling_amount) + " of " + str(ticker) + " at price: " + str(cur_price))
+                            if selling_amount > 0:
+                                self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
+                                print("Sold " + str(selling_amount) + " of " + str(ticker) + " at price: " + str(cur_price))
                             last_trade_price = cur_price
+                            print('last trade price is: ' + str(last_trade_price))
                             buying_power = float(self.account.buying_power)
                             holding_amount -= selling_amount
                         except Exception as e:
-                            print('last trade price is: ' + last_trade_price)
+                            print('last trade price is: ' + str(last_trade_price))
                             logging.exception("Sell Order submission failed")
+                        print('total earn is: $' + str(buying_power - total_profit + holding_amount * last_trade_price))
                 time.sleep(1)
+            print('total profit in % is: ' + str((buying_power - total_profit + holding_amount * last_trade_price) / total_profit * 100) + '%')
 
     def run_trade(self, ticker, high, low, percentage, buying_power_percentage):
         #Create a new thread to execute grid_trading
@@ -79,5 +87,5 @@ class CryptoTrade:
 if __name__ == '__main__':
     crypt_trade = CryptoTrade()
     print("grid trading start")
-    crypt_trade.run_trade('BTCUSD',28000,27000,0.0001,0.1)
+    crypt_trade.run_trade('BTCUSD',29000,27000,0.001,0.1)
 
