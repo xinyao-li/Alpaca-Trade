@@ -2,7 +2,7 @@ import threading
 
 import alpaca_trade_api as tradeapi
 import config
-import datetime as dt
+import variable
 import logging
 import time
 
@@ -22,12 +22,12 @@ class CryptoTrade:
         #Get the buying power from account
         buying_power = float(self.account.buying_power)
         total_profit = buying_power
-        holding_amount = config.holding_amount
+        holding_amount = variable.holding_amount
 
         #Intialize the last trade price to close price of previous open date
         list = []
         list.append(ticker)
-        last_trade_price = config.last_trade_price
+        last_trade_price = variable.last_trade_price
         print('buying power is: '+ str(buying_power))
         print('last trade price is: ' + str(last_trade_price))
         print('holding amount is: ' + str(holding_amount))
@@ -55,9 +55,10 @@ class CryptoTrade:
                             self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
                             print("Bought " + str(buying_amount) + " of "+str(ticker)+" at price: "+str(ask_price))
                             last_trade_price = ask_price
+                            holding_amount += buying_amount
+                            self.writeValue('variable.py',last_trade_price,holding_amount)
                             print('last trade price is: ' + str(last_trade_price))
                             buying_power = float(self.account.buying_power)
-                            holding_amount += buying_amount
                         except Exception as e:
                             print('last trade price is: ' + str(last_trade_price))
                             logging.exception("Buy Order submission failed")
@@ -71,9 +72,10 @@ class CryptoTrade:
                                 self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
                                 print("Sold " + str(selling_amount) + " of " + str(ticker) + " at price: " + str(bid_price))
                             last_trade_price = bid_price
+                            holding_amount -= selling_amount
+                            self.writeValue('variable.py', last_trade_price, holding_amount)
                             print('last trade price is: ' + str(last_trade_price))
                             buying_power = float(self.account.buying_power)
-                            holding_amount -= selling_amount
                         except Exception as e:
                             print('last trade price is: ' + str(last_trade_price))
                             logging.exception("Sell Order submission failed")
@@ -88,6 +90,12 @@ class CryptoTrade:
         thread = threading.Thread(target=self.grid_trading(ticker, high, low, percentage, buying_power_percentage, should_stop))
         thread.start()
         thread.join()
+
+    def writeValue(self,doc,last_trade_price,holding_amount):
+        with open(doc, 'w') as f:
+            f.write(f'last_trade_price={last_trade_price}\n')
+            f.write(f'holding_amount={holding_amount}\n')
+        print('New Value has updated')
 
 
 if __name__ == '__main__':
