@@ -1,5 +1,5 @@
 import alpaca_trade_api as tradeapi
-import config
+from inputs import config
 import pandas as pd
 import logging
 import matplotlib.pyplot as plt

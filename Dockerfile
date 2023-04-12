@@ -12,7 +12,7 @@ COPY . .
 
 COPY main.py /app
 
-COPY config.py /app
+COPY inputs/config.py /app
 
 ENV PYTHONPATH="${PYTHONPATH}:/app"
 
