@@ -34,7 +34,11 @@ class CryptoTrade:
         buying_power = float(self.account.buying_power)
         total_profit = buying_power
         ticker_for_holding = ticker.replace('/','')
-        holding_amount = float(self.api.get_position(ticker_for_holding).qty)
+        holding_amount = None
+        try:
+            holding_amount = float(self.api.get_position(ticker_for_holding).qty)
+        except Exception as e:
+            holding_amount = 0.0
 
         #Intialize the last trade price to close price of previous open date
         list = []
