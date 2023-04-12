@@ -70,7 +70,7 @@ if __name__ == '__main__':
     plt.plot(new_data['date'], new_data['total_profit'], label='Total Profit')
 
     # Set the title, labels and legend
-    plt.title('Bitcoin market regression test Feb 2023')
+    plt.title('Bitcoin market regression tests Feb 2023')
     plt.xlabel('Date', fontsize=18)
     plt.ylabel('Total profit in %', fontsize=18)
     plt.legend()
