@@ -71,10 +71,10 @@ class CryptoTrade:
                             #Update the last_trade_price and holding_amount
                             last_trade_price = ask_price
                             holding_amount = self.api.get_position(ticker_for_holding).qty
-                            self.writeValue('/inputs/variable.py',last_trade_price,holding_amount)
+                            self.writeValue('variable.py',last_trade_price,holding_amount)
                             buying_power = float(self.account.buying_power)
                         except Exception as e:
-                            logging.exception("Buy Order submission failed")
+                            self.logger.exception("Buy Order submission failed")
 
                         self.logger.info('last trade price is: ' + str(last_trade_price))
 
@@ -90,15 +90,14 @@ class CryptoTrade:
                             # Update the last_trade_price and holding_amount
                             last_trade_price = bid_price
                             holding_amount = self.api.get_position(ticker_for_holding).qty
-                            self.writeValue('/inputs/variable.py', last_trade_price, holding_amount)
+                            self.writeValue('variable.py', last_trade_price, holding_amount)
                             buying_power = float(self.account.buying_power)
                         except Exception as e:
-                            logging.exception("Sell Order submission failed")
+                            self.logger.exception("Sell Order submission failed")
 
                         self.logger.info('last trade price is: ' + str(last_trade_price))
                         #print('total earn is: $' + str(buying_power - total_profit + holding_amount * last_trade_price))
                 time.sleep(1)
-            print('total profit in % is: ' + str((buying_power - total_profit + holding_amount * last_trade_price) / total_profit * 100) + '%')
 
     def run_trade(self, ticker, high, low, percentage, buying_power_percentage):
         #Create a new thread to execute grid_trading

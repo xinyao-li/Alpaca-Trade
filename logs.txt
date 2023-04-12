@@ -1,4 +1,4 @@
 
-2023-04-11 19:25:53,675 - INFO - buying power is: 31733.65586479654
-2023-04-11 19:25:53,675 - INFO - last trade price is: 29977.2535
-2023-04-11 19:25:53,675 - INFO - holding amount is: 2.653581611
+2023-04-11 19:34:19,200 - INFO - buying power is: 190075.751793917
+2023-04-11 19:34:19,202 - INFO - last trade price is: 29977.2535
+2023-04-11 19:34:19,202 - INFO - holding amount is: 0.000410655
