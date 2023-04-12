@@ -34,7 +34,7 @@ class CryptoTrade:
         buying_power = float(self.account.buying_power)
         total_profit = buying_power
         ticker_for_holding = ticker.replace('/','')
-        holding_amount = self.api.get_position(ticker_for_holding).qty
+        holding_amount = float(self.api.get_position(ticker_for_holding).qty)
 
         #Intialize the last trade price to close price of previous open date
         list = []
@@ -70,8 +70,8 @@ class CryptoTrade:
 
                             #Update the last_trade_price and holding_amount
                             last_trade_price = ask_price
-                            holding_amount = self.api.get_position(ticker_for_holding).qty
-                            self.writeValue('variable.py',last_trade_price,holding_amount)
+                            holding_amount = float(self.api.get_position(ticker_for_holding).qty)
+                            self.writeValue('./inputs/variable.py',last_trade_price,holding_amount)
                             buying_power = float(self.account.buying_power)
                         except Exception as e:
                             self.logger.exception("Buy Order submission failed")
@@ -89,8 +89,8 @@ class CryptoTrade:
 
                             # Update the last_trade_price and holding_amount
                             last_trade_price = bid_price
-                            holding_amount = self.api.get_position(ticker_for_holding).qty
-                            self.writeValue('variable.py', last_trade_price, holding_amount)
+                            holding_amount = float(self.api.get_position(ticker_for_holding).qty)
+                            self.writeValue('./inputs/variable.py', last_trade_price, holding_amount)
                             buying_power = float(self.account.buying_power)
                         except Exception as e:
                             self.logger.exception("Sell Order submission failed")

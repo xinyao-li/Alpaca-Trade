@@ -1,4 +1,6 @@
 
-2023-04-11 19:34:19,200 - INFO - buying power is: 190075.751793917
-2023-04-11 19:34:19,202 - INFO - last trade price is: 29977.2535
-2023-04-11 19:34:19,202 - INFO - holding amount is: 0.000410655
+2023-04-11 20:56:40,457 - INFO - buying power is: 96952.48757587244
+2023-04-11 20:56:40,458 - INFO - last trade price is: 29977.2535
+2023-04-11 20:56:40,458 - INFO - holding amount is: 1.540702036
+2023-04-11 20:56:40,940 - INFO - Bought 0.3237542196360142 of BTC/USD at price: 29946.324
+2023-04-11 20:56:41,040 - INFO - last trade price is: 29946.324
