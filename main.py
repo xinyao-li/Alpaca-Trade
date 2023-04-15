@@ -116,5 +116,5 @@ class CryptoTrade:
 if __name__ == '__main__':
     crypt_trade = CryptoTrade()
     print("grid trading start")
-    crypt_trade.run_trade('BTC/USD',32000,26000,0.001,0.1)
+    crypt_trade.run_trade('BTC/USD',32000,26000,0.001,0.01)
 
