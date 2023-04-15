@@ -80,17 +80,17 @@ class DistributionTest:
         map_high['mean'] = map_high['mean']/count * 100
         map_high['1s'] = map_high['1s']/count * 100
         map_high['2s'] = map_high['2s']/count * 100
-        map_high['3s'] = map_high['2s']/count * 100
+        map_high['3s'] = map_high['3s']/count * 100
         map_high['-1s'] = map_high['-1s'] / count * 100
         map_high['-2s'] = map_high['-2s'] / count * 100
-        map_high['-3s'] = map_high['-2s'] / count * 100
+        map_high['-3s'] = map_high['-3s'] / count * 100
         map_low['mean'] = map_low['mean'] / count * 100
         map_low['1s'] = map_low['1s'] / count * 100
         map_low['2s'] = map_low['2s'] / count * 100
-        map_low['3s'] = map_low['2s'] / count * 100
+        map_low['3s'] = map_low['3s'] / count * 100
         map_low['-1s'] = map_low['-1s'] / count * 100
         map_low['-2s'] = map_low['-2s'] / count * 100
-        map_low['-3s'] = map_low['-2s'] / count * 100
+        map_low['-3s'] = map_low['-3s'] / count * 100
 
         print(map_high)
         print(map_low)
