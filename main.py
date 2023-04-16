@@ -97,7 +97,7 @@ class CryptoTrade:
                             self.logger.exception("Sell Order submission failed")
 
                         self.logger.info('last trade price is: ' + str(last_trade_price))
-                        #print('total earn is: $' + str(buying_power - total_profit + holding_amount * last_trade_price))
+
                 time.sleep(1)
 
     def run_trade(self, ticker, high, low, percentage, buying_power_percentage):

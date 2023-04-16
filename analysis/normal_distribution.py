@@ -103,13 +103,23 @@ class Distribution:
         map_bid['1s'] = map_bid['1s']/len(bid_price_list) * 100
         map_bid['2s'] = map_bid['2s'] / len(bid_price_list) * 100
         map_bid['3s'] = map_bid['3s'] / len(bid_price_list) * 100
+        map_bid['-1s'] = map_bid['-1s'] / len(bid_price_list) * 100
+        map_bid['-2s'] = map_bid['-2s'] / len(bid_price_list) * 100
+        map_bid['-3s'] = map_bid['-3s'] / len(bid_price_list) * 100
         map_ask['mean'] = map_ask['mean'] / len(ask_price_list) * 100
+        map_ask['1s'] = map_ask['1s'] / len(ask_price_list) * 100
+        map_ask['2s'] = map_ask['2s'] / len(ask_price_list) * 100
+        map_ask['3s'] = map_ask['3s'] / len(ask_price_list) * 100
         map_ask['-1s'] = map_ask['-1s'] / len(ask_price_list) * 100
         map_ask['-2s'] = map_ask['-2s'] / len(ask_price_list) * 100
         map_ask['-3s'] = map_ask['-3s'] / len(ask_price_list) * 100
 
         print('bid price distribution: '+ str(map_bid))
         print('ask price distribution: ' + str(map_ask))
+        print('bid mean: '+str(bid_price_mean))
+        print('ask mean: ' + str(ask_price_mean))
+        print('bid standard: '+str(bid_standard))
+        print('ask standard: ' + str(ask_standard))
 
 if __name__ == '__main__':
     distribution = Distribution()
