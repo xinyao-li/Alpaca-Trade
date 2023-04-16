@@ -1,1 +1,1 @@
-last_trade_price=30322.02953
+last_trade_price=30349.22836

@@ -26,8 +26,8 @@ class CryptoTrade:
     '''
 
     # Function to generate a list of all bought trade you made and sort by buy in price
-    def grid_trading(self, ticker, high, low, percentage, buying_power_percentage,should_stop):
-        #Get the buying power from account
+    def grid_trading(self, ticker, high, low, percentage, buying_power_percentage,bid_standard,ask_standard,should_stop):
+        # Get the buying power from account
         buying_power = float(self.account.buying_power)
         total_profit = buying_power
         ticker_for_holding = ticker.replace('/','')
@@ -37,7 +37,7 @@ class CryptoTrade:
         except Exception as e:
             holding_amount = 0
 
-        #Intialize the last trade price to close price of previous open date
+        # Intialize the last trade price to close price of previous open date
         list = []
         list.append(ticker)
         last_trade_price = variable.last_trade_price
@@ -48,7 +48,7 @@ class CryptoTrade:
 
         if last_trade_price is not None:
             while not should_stop.is_set():
-                #get the current price of ticker in Binance in every 1 sec
+                # Get the current price of ticker in Binance in every 1 sec
                 bid_price = None
                 ask_price = None
                 try:
@@ -60,8 +60,8 @@ class CryptoTrade:
                     print('last trade price is: '+str(last_trade_price))
                     logging.exception("No such ticker or fail to get price")
 
-                #If the price is in range low to high, if the price drop 'percentage' then buy, else if price reach 'percentage' then sell
-                #Buy or Sell amount will be buy_power_percentage of buying power divided by current price of ticker.
+                # If the price is in range low to high, if the price drop 'percentage' then buy, else if price reach 'percentage' then sell
+                # Buy or Sell amount will be buy_power_percentage of buying power divided by current price of ticker.
                 if bid_price is not None and ask_price is not None and ask_price <= high and bid_price >= low:
                     if ask_price <= last_trade_price*(1 - percentage):
                         try:
@@ -98,12 +98,65 @@ class CryptoTrade:
 
                         self.logger.info('last trade price is: ' + str(last_trade_price))
 
+                # When bid price in range [high, high + ask_standard], sell half of current holding amount
+                elif bid_price is not None and bid_price > high and bid_price <= high + ask_standard:
+                    selling_amount = None
+                    try:
+                        selling_amount = float(self.api.get_position(ticker_for_holding).qty)
+                    except Exception as e:
+                        selling_amount = 0
+
+                    if selling_amount is not None and selling_amount > 0:
+                        selling_amount *=0.5
+                        try:
+                            self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
+                            self.logger.info("Sold half amounts")
+                        except Exception as e:
+                            self.logger.exception("Sell Half Order submission failed")
+                    last_trade_price = bid_price
+
+                # When bid price in range [high + ask_standard, high + 2 * ask_standard], sell all amount currently hold
+                elif bid_price is not None and bid_price > high + ask_standard and bid_price <= high + 2 * ask_standard:
+                    selling_amount = None
+                    try:
+                        selling_amount = float(self.api.get_position(ticker_for_holding).qty)
+                    except Exception as e:
+                        selling_amount = 0
+
+                    if selling_amount is not None and selling_amount > 0:
+                        try:
+                            self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
+                            self.logger.info("Sold all amounts")
+                        except Exception as e:
+                            self.logger.exception("Sell All Order submission failed")
+                    last_trade_price = bid_price
+
+                # When ask price in range [low - bid_standard,low], buy twice of buying_power_percentage amount
+                elif ask_price is not None and ask_price < low and ask_price >= low - bid_standard:
+                    try:
+                        buying_amount = buying_power * buying_power_percentage * 2
+                        self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
+                        self.logger.info("Bought double amounts")
+                    except Exception as e:
+                        self.logger.exception("Buy Double Order submission failed")
+                    last_trade_price = ask_price
+
+                # When ask price in range [low - 2 * bid_standard,low - bid_standard], buy tripe of buying_power_percentage amount
+                elif ask_price is not None and ask_price < low - bid_standard and ask_price >= low - 2 * bid_standard:
+                    try:
+                        buying_amount = buying_power * buying_power_percentage * 3
+                        self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
+                        self.logger.info("Bought double amounts")
+                    except Exception as e:
+                        self.logger.exception("Buy Double Order submission failed")
+                    last_trade_price = bid_price
+
                 time.sleep(1)
 
-    def run_trade(self, ticker, high, low, percentage, buying_power_percentage):
+    def run_trade(self, ticker, high, low, percentage, buying_power_percentage,bid_standard,ask_standard):
         #Create a new thread to execute grid_trading
         should_stop = threading.Event()
-        thread = threading.Thread(target=self.grid_trading(ticker, high, low, percentage, buying_power_percentage, should_stop))
+        thread = threading.Thread(target=self.grid_trading(ticker, high, low, percentage, buying_power_percentage, bid_standard, ask_standard, should_stop))
         thread.start()
         thread.join()
 
@@ -116,5 +169,5 @@ class CryptoTrade:
 if __name__ == '__main__':
     crypt_trade = CryptoTrade()
     print("grid trading start")
-    crypt_trade.run_trade('BTC/USD',32000,26000,0.001,0.01)
+    crypt_trade.run_trade('BTC/USD',30413.84,30302.73,0.00005,0.3,37.5378,37.2398)
 

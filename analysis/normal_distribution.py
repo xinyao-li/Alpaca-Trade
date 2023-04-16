@@ -120,6 +120,10 @@ class Distribution:
         print('ask mean: ' + str(ask_price_mean))
         print('bid standard: '+str(bid_standard))
         print('ask standard: ' + str(ask_standard))
+        print('bid - 1s: ' + str(bid_price_mean - bid_standard))
+        print('ask - 1s: ' + str(ask_price_mean - ask_standard))
+        print('bid + 1s: ' + str(bid_price_mean + bid_standard))
+        print('ask + 1s: ' + str(ask_price_mean + ask_standard))
 
 if __name__ == '__main__':
     distribution = Distribution()
