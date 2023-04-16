@@ -92,17 +92,19 @@ class DistributionTest:
         map_low['-2s'] = map_low['-2s'] / count * 100
         map_low['-3s'] = map_low['-3s'] / count * 100
 
-        print(map_high)
-        print(map_low)
+        print("high distribution: "+str(map_high))
+        print("low distribution: "+str(map_low))
 
-        print("high_mean:"+str(high_mean))
+        print("high_mean: "+str(high_mean))
         print("low_mean:"+str(low_mean))
-        print(high_mean - high_standard)
-        print(low_mean - low_standard)
+        print("high_standard: "+str(high_standard))
+        print("low_standard: " + str(low_standard))
+        print("high -1s: "+str(high_mean - high_standard))
+        print("low -1s: "+str(low_mean - low_standard))
 
 
 
 if __name__ == '__main__':
     distribution_test = DistributionTest()
-    distribution_test.normal_distribution_fit('BTC/USD','2023-04-07','2023-04-14')
+    distribution_test.normal_distribution_fit('BTC/USD','2023-04-13','2023-04-14')
 

@@ -9,16 +9,19 @@ class CryptoTradeTest:
     # Instantiate REST API Connection
     api = tradeapi.REST(key_id=config.API_KEY, secret_key=config.SECRET_KEY, base_url=config.BASE_URL, api_version='v2')
 
-    def grid_trading(self, ticker, high, low, percentage, buying_power,buying_power_percentage, start,end):
+    def grid_trading(self, ticker, high, low, percentage, buying_power,buying_power_percentage, start,end,high_standard,low_standard):
         tickers = []
         tickers.append(ticker)
         data = self.api.get_crypto_bars(tickers, TimeFrame.Hour, start, end).df
+        #print(data)
 
         #Intialize the last trade price as current price
         last_trade_price = float(data.iloc[0]['high'])
         total_profit = buying_power
         holding_amount = 0
         result = []
+        market_high = []
+        market_low = []
 
         for i, row in list(enumerate(data.itertuples(), start=0)):
             #get the current price of ticker in Binance in every 1 sec
@@ -57,23 +60,44 @@ class CryptoTradeTest:
                         logging.exception("Sell Order submission failed")
                     print('total earn is: $' + str(buying_power - total_profit + holding_amount * last_trade_price))
                 #time.sleep(1)
+            elif low_price is not None and low_price > high and low_price <= high + high_standard:
+                if holding_amount > 0:
+                    buying_power += holding_amount * low_price
+                    holding_amount = 0.0
+                    last_trade_price = low_price
+                    print('Sold all amount')
+            elif high_price is not None and high_price < low and high_price >= low - low_standard:
+                buying_amount = buying_power * buying_power_percentage * 2 / high_price
+                buying_power -= buying_amount * high_price
+                holding_amount += buying_amount
+                last_trade_price = high_price
+                print(f"Bought {buying_amount} of {ticker} at price: {high_price}")
             try:
-                result.append([str(data.iloc[i][1]), low_price, (buying_power - total_profit + holding_amount * last_trade_price)/total_profit*100])
+                result.append([str(data.iloc[i][0]), low_price, (buying_power - total_profit + holding_amount * last_trade_price)/total_profit*100])
+                if i > 0:
+                    market_high.append([str(data.iloc[i][0]),low_price,(float(data.iloc[i]['high']) - float(data.iloc[i - 1]['high']))/float(data.iloc[i]['high'])*100])
+                    market_low.append([str(data.iloc[i][0]), low_price,(float(data.iloc[i]['low']) - float(data.iloc[i - 1]['low'])) / float(data.iloc[i]['low']) * 100])
             except Exception as e:
                 logging.exception("")
         print('total profit in % is: '+str((buying_power - total_profit + holding_amount * last_trade_price)/total_profit*100)+'%')
         new_data = pd.DataFrame(result, columns=['date', 'close_price', 'total_profit'])
-        return new_data
+        market_high_data = pd.DataFrame(market_high, columns=['date', 'close_price', 'total_profit'])
+        market_low_data = pd.DataFrame(market_low, columns=['date', 'close_price', 'total_profit'])
+        return new_data, market_high_data, market_low_data
 
 
 if __name__ == '__main__':
     crypt_trade_test = CryptoTradeTest()
     print("grid trading start")
-    new_data = crypt_trade_test.grid_trading('BTC/USD',30034,25932,0.001,100000,0.1,'2023-04-07','2023-04-14')
+    stat_data = crypt_trade_test.grid_trading('BTC/USD',30168.7359,30037.43,0.0001,100000,0.3,'2023-04-13','2023-04-14',182.044,140.864)
     plt.figure(figsize=(16, 8))
+    #print(stat_data[0])
 
     # Plot the close_price and total_profit
-    plt.plot(new_data['date'], new_data['total_profit'], label='Total Profit')
+    plt.plot(stat_data[0]['date'], stat_data[0]['total_profit'], label='Grid Trade Profit')
+    plt.plot(stat_data[1]['date'], stat_data[1]['total_profit'], label='Market Profit in High')
+    plt.plot(stat_data[2]['date'], stat_data[2]['total_profit'], label='Market Profit in Low')
+
 
     # Set the title, labels and legend
     plt.title('Bitcoin market regression tests Feb 2023')
