@@ -104,13 +104,13 @@ class CryptoTrade:
                         self.logger.info('last trade price is: ' + str(last_trade_price))
 
                 # When bid price in range [high, high + ask_standard], sell half of current holding amount
-                elif bid_price is not None and bid_price <= high + ask_standard:
+                elif bid_price is not None and bid_price > high and bid_price <= high + ask_standard:
                     selling_amount = None
                     try:
                         selling_amount = float(self.api.get_position(ticker_for_holding).qty)
                     except Exception as e:
                         selling_amount = 0
-                    # corner case when sell_amount less than 2e-9
+                    # Corner case when sell_amount less than 2e-9
                     temp = str(selling_amount)
                     if float(temp[len(temp)-1]) > 8:
                         selling_amount = 0
@@ -123,8 +123,9 @@ class CryptoTrade:
                         except Exception as e:
                             self.logger.exception("Sell Half Order submission failed")
 
-                    last_trade_price = bid_price
-                    self.writeValue('./inputs/variable.py', last_trade_price)
+                    if last_trade_price < bid_price:
+                        last_trade_price = bid_price
+                        self.writeValue('./inputs/variable.py', last_trade_price)
 
                 # When bid price in range [high + ask_standard, infinite], sell all amount currently hold
                 elif bid_price is not None and bid_price > high + ask_standard:
@@ -133,7 +134,7 @@ class CryptoTrade:
                         selling_amount = float(self.api.get_position(ticker_for_holding).qty)
                     except Exception as e:
                         selling_amount = 0
-                    # corner case when sell_amount less than 2e-9
+                    # Corner case when sell_amount less than 2e-9
                     temp = str(selling_amount)
                     if float(temp[len(temp) - 1]) > 8:
                         selling_amount = 0
@@ -145,8 +146,9 @@ class CryptoTrade:
                         except Exception as e:
                             self.logger.exception("Sell All Order submission failed")
 
-                    last_trade_price = bid_price
-                    self.writeValue('./inputs/variable.py', last_trade_price)
+                    if last_trade_price < bid_price:
+                        last_trade_price = bid_price
+                        self.writeValue('./inputs/variable.py', last_trade_price)
 
                 # When ask price in range [low - bid_standard,low], buy twice of buying_power_percentage amount
                 elif ask_price is not None and last_trade_price >= low and ask_price < low and ask_price >= low - bid_standard:
@@ -162,7 +164,7 @@ class CryptoTrade:
                     self.writeValue('./inputs/variable.py', last_trade_price)
 
                 # When ask price in range [0,low - bid_standard], buy tripe of buying_power_percentage amount
-                elif ask_price is not None and last_trade_price < low and last_trade_price >= low - bid_standard and ask_price < low - bid_standard:
+                elif ask_price is not None and last_trade_price >= low - bid_standard and ask_price < low - bid_standard:
                     try:
                         buying_amount = buying_power * buying_power_percentage/ask_price * 3
                         print('buying_amount:'+str(buying_amount))
@@ -192,5 +194,5 @@ class CryptoTrade:
 if __name__ == '__main__':
     crypt_trade = CryptoTrade()
     print("grid trading start")
-    crypt_trade.run_trade('BTC/USD',30364.7869,30301.995,0.0001,0.1,31.39,31.4)
+    crypt_trade.run_trade('BTC/USD',30444.789,30167.134,0.001,0.1,120.788,120.8276)
 
