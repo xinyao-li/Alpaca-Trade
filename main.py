@@ -82,9 +82,14 @@ class CryptoTrade:
                     elif bid_price >= last_trade_price*(1 + percentage):
                         try:
                             selling_amount = buying_power * buying_power_percentage / bid_price
+                            # corner case when sell_amount less than 2e-9
+                            temp = str(selling_amount)
+                            if float(temp[len(temp) - 1]) > 8:
+                                selling_amount = 0
+
                             if holding_amount < selling_amount:
                                 selling_amount = holding_amount
-                            if selling_amount > 0:
+                            if selling_amount > 0.000000002:
                                 self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
                                 self.logger.info("Sold " + str(selling_amount) + " of " + str(ticker) + " at price: " + str(bid_price))
                                 holding_amount = float(self.api.get_position(ticker_for_holding).qty)
@@ -99,57 +104,75 @@ class CryptoTrade:
                         self.logger.info('last trade price is: ' + str(last_trade_price))
 
                 # When bid price in range [high, high + ask_standard], sell half of current holding amount
-                elif bid_price is not None and bid_price > high and bid_price <= high + ask_standard:
+                elif bid_price is not None and bid_price <= high + ask_standard:
                     selling_amount = None
                     try:
                         selling_amount = float(self.api.get_position(ticker_for_holding).qty)
                     except Exception as e:
                         selling_amount = 0
+                    # corner case when sell_amount less than 2e-9
+                    temp = str(selling_amount)
+                    if float(temp[len(temp)-1]) > 8:
+                        selling_amount = 0
 
-                    if selling_amount is not None and selling_amount > 0:
-                        selling_amount *=0.5
+                    if selling_amount is not None and selling_amount > 0.000000002:
+                        selling_amount *= 0.5
                         try:
                             self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
                             self.logger.info("Sold half amounts")
                         except Exception as e:
                             self.logger.exception("Sell Half Order submission failed")
-                    last_trade_price = bid_price
 
-                # When bid price in range [high + ask_standard, high + 2 * ask_standard], sell all amount currently hold
-                elif bid_price is not None and bid_price > high + ask_standard and bid_price <= high + 2 * ask_standard:
+                    last_trade_price = bid_price
+                    self.writeValue('./inputs/variable.py', last_trade_price)
+
+                # When bid price in range [high + ask_standard, infinite], sell all amount currently hold
+                elif bid_price is not None and bid_price > high + ask_standard:
                     selling_amount = None
                     try:
                         selling_amount = float(self.api.get_position(ticker_for_holding).qty)
                     except Exception as e:
                         selling_amount = 0
+                    # corner case when sell_amount less than 2e-9
+                    temp = str(selling_amount)
+                    if float(temp[len(temp) - 1]) > 8:
+                        selling_amount = 0
 
-                    if selling_amount is not None and selling_amount > 0:
+                    if selling_amount is not None and selling_amount > 0.000000002:
                         try:
                             self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
                             self.logger.info("Sold all amounts")
                         except Exception as e:
                             self.logger.exception("Sell All Order submission failed")
+
                     last_trade_price = bid_price
+                    self.writeValue('./inputs/variable.py', last_trade_price)
 
                 # When ask price in range [low - bid_standard,low], buy twice of buying_power_percentage amount
-                elif ask_price is not None and ask_price < low and ask_price >= low - bid_standard:
+                elif ask_price is not None and last_trade_price >= low and ask_price < low and ask_price >= low - bid_standard:
                     try:
-                        buying_amount = buying_power * buying_power_percentage * 2
+                        buying_amount = buying_power * buying_power_percentage/ask_price * 2
+                        print('buying_amount:' + str(buying_amount))
                         self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
                         self.logger.info("Bought double amounts")
                     except Exception as e:
                         self.logger.exception("Buy Double Order submission failed")
-                    last_trade_price = ask_price
 
-                # When ask price in range [low - 2 * bid_standard,low - bid_standard], buy tripe of buying_power_percentage amount
-                elif ask_price is not None and ask_price < low - bid_standard and ask_price >= low - 2 * bid_standard:
+                    last_trade_price = ask_price
+                    self.writeValue('./inputs/variable.py', last_trade_price)
+
+                # When ask price in range [0,low - bid_standard], buy tripe of buying_power_percentage amount
+                elif ask_price is not None and last_trade_price < low and last_trade_price >= low - bid_standard and ask_price < low - bid_standard:
                     try:
-                        buying_amount = buying_power * buying_power_percentage * 3
+                        buying_amount = buying_power * buying_power_percentage/ask_price * 3
+                        print('buying_amount:'+str(buying_amount))
                         self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
-                        self.logger.info("Bought double amounts")
+                        self.logger.info("Bought tripe amounts")
                     except Exception as e:
-                        self.logger.exception("Buy Double Order submission failed")
-                    last_trade_price = bid_price
+                        self.logger.exception("Buy Tripe Order submission failed")
+
+                    last_trade_price = ask_price
+                    self.writeValue('./inputs/variable.py', last_trade_price)
 
                 time.sleep(1)
 
@@ -169,5 +192,5 @@ class CryptoTrade:
 if __name__ == '__main__':
     crypt_trade = CryptoTrade()
     print("grid trading start")
-    crypt_trade.run_trade('BTC/USD',30413.84,30302.73,0.00005,0.3,37.5378,37.2398)
+    crypt_trade.run_trade('BTC/USD',30364.7869,30301.995,0.0001,0.1,31.39,31.4)
 
