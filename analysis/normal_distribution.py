@@ -8,10 +8,10 @@ class Distribution:
     # Instantiate REST API Connection
     api = tradeapi.REST(key_id=config.API_KEY, secret_key=config.SECRET_KEY, base_url=config.BASE_URL, api_version='v2')
 
-    def shapeData(self):
+    def shapeData(self,file):
         bid_price_list = []
         ask_price_list = []
-        with open('price_data.txt', 'r') as f:
+        with open(file, 'r') as f:
             lines = f.readlines()
 
         for line in lines:
@@ -24,9 +24,9 @@ class Distribution:
 
         return bid_price_list,ask_price_list
 
-    def distribution_cal(self):
-        bid_price_list = self.shapeData()[0]
-        ask_price_list = self.shapeData()[1]
+    def distribution_cal(self,file):
+        bid_price_list = self.shapeData(file)[0]
+        ask_price_list = self.shapeData(file)[1]
 
         bid_price_mean = 0.0
         ask_price_mean = 0.0
@@ -131,4 +131,4 @@ class Distribution:
 
 if __name__ == '__main__':
     distribution = Distribution()
-    distribution.distribution_cal()
+    distribution.distribution_cal('price_data.txt')

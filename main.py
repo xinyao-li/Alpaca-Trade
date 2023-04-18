@@ -25,6 +25,7 @@ class CryptoTrade:
     # Instantiate REST API Connection
     api = tradeapi.REST(key_id=config.API_KEY, secret_key=config.SECRET_KEY, base_url=config.BASE_URL, api_version='v2')
     account = api.get_account()
+    seconds = 0
     '''
     #Download the data
     now = dt.datetime.today()
@@ -33,7 +34,7 @@ class CryptoTrade:
     '''
 
     # Function to generate a list of all bought trade you made and sort by buy in price
-    def grid_trading(self, ticker, high, low, percentage, buying_power_percentage,bid_standard,ask_standard,should_stop):
+    def grid_trading(self, ticker, high, low, percentage, buying_power_percentage,bid_standard,ask_standard,period):
         # Get the buying power from account
         buying_power = float(self.account.buying_power)
         total_profit = buying_power
@@ -54,7 +55,7 @@ class CryptoTrade:
         self.logger1.info('holding amount is: ' + str(holding_amount))
 
         if last_trade_price is not None:
-            while not should_stop.is_set():
+            while self.seconds < period:
                 # Get the current price of ticker in Binance in every 1 sec
                 bid_price = None
                 ask_price = None
@@ -187,14 +188,19 @@ class CryptoTrade:
                     self.writeValue('./inputs/variable.py', last_trade_price)
 
                 time.sleep(1)
+                self.seconds += 1
 
-    def dynamic_trade(self,ticker,high,low,percentage,buying_power_percentage,bid_standard,ask_standard,period,should_stop):
+    def dynamic_trade(self, ticker, percentage, buying_power_percentage, period, should_stop):
+        while not should_stop.is_set():
+            distribution = normal_distribution.Distribution()
+            result = distribution.distribution_cal('./analysis/price_data.txt')
+            self.grid_trading(ticker,result[0],result[1],percentage,buying_power_percentage,result[2],result[3],period)
+            self.seconds = 0
 
-
-    def run_trade(self, ticker, high, low, percentage, buying_power_percentage,bid_standard,ask_standard):
+    def run_trade(self, ticker, percentage, buying_power_percentage,period):
         #Create a new thread to execute grid_trading
         should_stop = threading.Event()
-        thread = threading.Thread(target=self.grid_trading(ticker, high, low, percentage, buying_power_percentage, bid_standard, ask_standard, should_stop))
+        thread = threading.Thread(target=self.dynamic_trade(ticker, percentage, buying_power_percentage, period, should_stop))
         thread.start()
         thread.join()
 
@@ -207,5 +213,5 @@ class CryptoTrade:
 if __name__ == '__main__':
     crypt_trade = CryptoTrade()
     print("grid trading start")
-    crypt_trade.run_trade('BTC/USD',29547.585,29485.69,0.001,0.1,13.606,12.904)
+    crypt_trade.run_trade('BTC/USD',0.001,0.1,1801)
 
