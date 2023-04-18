@@ -25,7 +25,7 @@ class CryptoTrade:
     # Instantiate REST API Connection
     api = tradeapi.REST(key_id=config.API_KEY, secret_key=config.SECRET_KEY, base_url=config.BASE_URL, api_version='v2')
     account = api.get_account()
-    seconds = 0
+    seconds = variable.seconds
     '''
     #Download the data
     now = dt.datetime.today()
@@ -115,7 +115,7 @@ class CryptoTrade:
                         self.logger1.info('last trade price is: ' + str(last_trade_price))
 
                 # When bid price in range [high, high + ask_standard], sell half of current holding amount
-                elif bid_price is not None and bid_price > high and bid_price <= high + ask_standard:
+                elif bid_price is not None and last_trade_price <= high and bid_price > high and bid_price <= high + ask_standard:
                     selling_amount = None
                     try:
                         selling_amount = float(self.api.get_position(ticker_for_holding).qty)
@@ -139,7 +139,7 @@ class CryptoTrade:
                         self.writeValue('./inputs/variable.py', last_trade_price)
 
                 # When bid price in range [high + ask_standard, infinite], sell all amount currently hold
-                elif bid_price is not None and bid_price > high + ask_standard:
+                elif bid_price is not None and last_trade_price <= high + ask_standard and bid_price > high + ask_standard:
                     selling_amount = None
                     try:
                         selling_amount = float(self.api.get_position(ticker_for_holding).qty)
@@ -189,6 +189,7 @@ class CryptoTrade:
 
                 time.sleep(1)
                 self.seconds += 1
+                self.writeValue('./inputs/variable.py',last_trade_price)
 
     def dynamic_trade(self, ticker, percentage, buying_power_percentage, period, should_stop):
         while not should_stop.is_set():
@@ -196,6 +197,7 @@ class CryptoTrade:
             result = distribution.distribution_cal('./analysis/price_data.txt')
             self.grid_trading(ticker,result[0],result[1],percentage,buying_power_percentage,result[2],result[3],period)
             self.seconds = 0
+            self.writeValue('./inputs/variable.py',variable.last_trade_price)
 
     def run_trade(self, ticker, percentage, buying_power_percentage,period):
         #Create a new thread to execute grid_trading
@@ -207,7 +209,7 @@ class CryptoTrade:
     def writeValue(self,doc,last_trade_price):
         with open(doc, 'w') as f:
             f.write(f'last_trade_price={last_trade_price}\n')
-        print('New Value has updated')
+            f.write(f'seconds={self.seconds}\n')
 
 
 if __name__ == '__main__':

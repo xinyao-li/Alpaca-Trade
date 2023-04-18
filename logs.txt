@@ -1,1 +1,67 @@
 
+2023-04-18 10:44:16,174 - INFO - buying power is: 112234.49330856047
+2023-04-18 10:44:16,174 - INFO - last trade price is: 29727
+2023-04-18 10:44:16,175 - INFO - holding amount is: 1.256251285
+2023-04-18 10:44:16,920 - INFO - Sold all amounts
+2023-04-18 11:32:47,541 - INFO - buying power is: 112234.49330856047
+2023-04-18 11:32:47,543 - INFO - last trade price is: 29727
+2023-04-18 11:32:47,543 - INFO - holding amount is: 0
+2023-04-18 12:50:00,078 - INFO - buying power is: 187863.44682615195
+2023-04-18 12:50:00,079 - INFO - last trade price is: 30263.542
+2023-04-18 12:50:00,079 - INFO - holding amount is: 0
+2023-04-18 12:50:00,681 - INFO - Bought 0.6215881511879541 of BTC/USD at price: 30223.138338
+2023-04-18 12:50:00,782 - INFO - last trade price is: 30223.138338
+2023-04-18 12:50:11,602 - INFO - Bought 0.6222166807906708 of BTC/USD at price: 30192.60856
+2023-04-18 12:50:11,704 - INFO - last trade price is: 30192.60856
+2023-04-18 12:50:54,104 - INFO - buying power is: 112724.70033841961
+2023-04-18 12:50:54,105 - INFO - last trade price is: 30192.60856
+2023-04-18 12:50:54,105 - INFO - holding amount is: 1.24156598
+2023-04-18 13:01:09,050 - INFO - buying power is: 112724.70033841961
+2023-04-18 13:01:09,052 - INFO - last trade price is: 30192.60856
+2023-04-18 13:01:09,052 - INFO - holding amount is: 1.24156598
+2023-04-18 13:06:58,594 - INFO - Sold 0.37286836925455247 of BTC/USD at price: 30231.768
+2023-04-18 13:06:58,695 - INFO - last trade price is: 30231.768
+2023-04-18 13:09:22,850 - INFO - Sold half amounts
+2023-04-18 13:09:24,274 - INFO - Sold half amounts
+2023-04-18 13:09:25,680 - INFO - Sold half amounts
+2023-04-18 13:09:27,085 - INFO - Sold half amounts
+2023-04-18 13:09:28,452 - INFO - Sold half amounts
+2023-04-18 13:09:29,845 - INFO - Sold half amounts
+2023-04-18 13:09:31,241 - INFO - Sold half amounts
+2023-04-18 13:45:25,202 - INFO - Sold half amounts
+2023-04-18 13:45:26,736 - INFO - Sold half amounts
+2023-04-18 13:45:28,126 - INFO - Sold half amounts
+2023-04-18 13:45:29,528 - INFO - Sold half amounts
+2023-04-18 14:16:20,770 - INFO - buying power is: 187684.24825599915
+2023-04-18 14:16:20,772 - INFO - last trade price is: 30424.5
+2023-04-18 14:16:20,772 - INFO - holding amount is: 0.000424169
+2023-04-18 14:16:57,745 - INFO - buying power is: 187684.24825599915
+2023-04-18 14:16:57,747 - INFO - last trade price is: 30424.5
+2023-04-18 14:16:57,747 - INFO - holding amount is: 0.000424169
+2023-04-18 14:16:57,865 - INFO - buying power is: 187684.24825599915
+2023-04-18 14:16:57,865 - INFO - last trade price is: 30424.5
+2023-04-18 14:16:57,865 - INFO - holding amount is: 0.000424169
+2023-04-18 14:19:01,069 - INFO - Bought 0.6185653346033468 of BTC/USD at price: 30341.86330153
+2023-04-18 14:19:01,160 - INFO - last trade price is: 30341.86330153
+2023-04-18 14:22:36,132 - INFO - Sold half amounts
+2023-04-18 14:22:37,514 - INFO - Sold half amounts
+2023-04-18 14:22:38,907 - INFO - Sold half amounts
+2023-04-18 14:22:40,288 - INFO - Sold half amounts
+2023-04-18 14:22:41,689 - INFO - Sold half amounts
+2023-04-18 14:22:43,080 - INFO - Sold half amounts
+2023-04-18 14:22:45,220 - INFO - buying power is: 186984.1302903134
+2023-04-18 14:22:45,220 - INFO - last trade price is: 30354.7741086
+2023-04-18 14:22:45,220 - INFO - holding amount is: 0.009654314
+2023-04-18 14:24:13,417 - INFO - buying power is: 186984.1302903134
+2023-04-18 14:24:13,417 - INFO - last trade price is: 30354.7741086
+2023-04-18 14:24:13,418 - INFO - holding amount is: 0.009654314
+2023-04-18 14:24:13,978 - INFO - Sold half amounts
+2023-04-18 14:26:07,710 - INFO - buying power is: 187276.65116404966
+2023-04-18 14:26:07,711 - INFO - last trade price is: 30359.209
+2023-04-18 14:26:07,711 - INFO - holding amount is: 0.004827157
+2023-04-18 14:37:11,450 - INFO - Bought 0.6174900244236765 of BTC/USD at price: 30328.692571
+2023-04-18 14:37:11,552 - INFO - last trade price is: 30328.692571
+2023-04-18 15:05:54,995 - INFO - Sold half amounts
+2023-04-18 15:10:49,113 - INFO - buying power is: 187276.65116404966
+2023-04-18 15:10:49,116 - INFO - last trade price is: 30359.209
+2023-04-18 15:10:49,116 - INFO - holding amount is: 0.310602849
