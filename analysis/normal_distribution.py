@@ -125,6 +125,10 @@ class Distribution:
         print('bid + 1s: ' + str(bid_price_mean + bid_standard))
         print('ask + 1s: ' + str(ask_price_mean + ask_standard))
 
+        high_price = ask_price_mean + ask_standard
+        low_price = bid_price_mean - bid_standard
+        return high_price, low_price, bid_standard, ask_standard
+
 if __name__ == '__main__':
     distribution = Distribution()
     distribution.distribution_cal()
