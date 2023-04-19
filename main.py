@@ -165,7 +165,7 @@ class CryptoTrade:
                 elif ask_price is not None and last_trade_price >= low and ask_price < low and ask_price >= low - bid_standard:
                     try:
                         buying_amount = buying_power * buying_power_percentage/ask_price
-                        print('buying_amount:' + str(buying_amount))
+                        print('buying_amount: ' + str(buying_amount))
                         self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
                         self.logger1.info("Bought in -1s")
                     except Exception as e:
@@ -178,7 +178,7 @@ class CryptoTrade:
                 elif ask_price is not None and last_trade_price >= low - bid_standard and ask_price < low - bid_standard:
                     try:
                         buying_amount = buying_power * buying_power_percentage/ask_price
-                        print('buying_amount:'+str(buying_amount))
+                        print('buying_amount: '+str(buying_amount))
                         self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
                         self.logger1.info("Bought in -2s or lower")
                     except Exception as e:
