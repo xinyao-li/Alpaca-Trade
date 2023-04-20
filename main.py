@@ -1,9 +1,10 @@
 import threading
 
 import alpaca_trade_api as tradeapi
-from inputs import config, variable
+from inputs import config, variable, parameter
 from analysis import normal_distribution
 import logging
+import datetime
 import time
 
 class CryptoTrade:
@@ -193,6 +194,7 @@ class CryptoTrade:
 
     def dynamic_trade(self, ticker, percentage, buying_power_percentage, period, should_stop):
         while not should_stop.is_set():
+            self.logger2.info(datetime.datetime.now())
             distribution = normal_distribution.Distribution()
             result = distribution.distribution_cal('./analysis/price_data.txt')
             self.grid_trading(ticker,result[0],result[1],percentage,buying_power_percentage,result[2],result[3],period)
@@ -215,5 +217,5 @@ class CryptoTrade:
 if __name__ == '__main__':
     crypt_trade = CryptoTrade()
     print("grid trading start")
-    crypt_trade.run_trade('BTC/USD',0.001,0.1,1801)
+    crypt_trade.run_trade(parameter.ticker,parameter.percentage,parameter.buying_power_percentage,parameter.period)
 
