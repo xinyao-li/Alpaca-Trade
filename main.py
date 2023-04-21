@@ -27,6 +27,7 @@ class CryptoTrade:
     api = tradeapi.REST(key_id=config.API_KEY, secret_key=config.SECRET_KEY, base_url=config.BASE_URL, api_version='v2')
     account = api.get_account()
     seconds = variable.seconds
+    last_trade_price = variable.last_trade_price
     '''
     #Download the data
     now = dt.datetime.today()
@@ -38,7 +39,6 @@ class CryptoTrade:
     def grid_trading(self, ticker, high, low, percentage, buying_power_percentage,bid_standard,ask_standard,period):
         # Get the buying power from account
         buying_power = float(self.account.buying_power)
-        total_profit = buying_power
         ticker_for_holding = ticker.replace('/','')
         holding_amount = None
         try:
@@ -49,13 +49,12 @@ class CryptoTrade:
         # Intialize the last trade price to close price of previous open date
         list = []
         list.append(ticker)
-        last_trade_price = variable.last_trade_price
 
         self.logger1.info('buying power is: '+ str(buying_power))
-        self.logger1.info('last trade price is: ' + str(last_trade_price))
+        self.logger1.info('last trade price is: ' + str(self.last_trade_price))
         self.logger1.info('holding amount is: ' + str(holding_amount))
 
-        if last_trade_price is not None:
+        if self.last_trade_price is not None:
             while self.seconds < period:
                 # Get the current price of ticker in Binance in every 1 sec
                 bid_price = None
@@ -69,29 +68,29 @@ class CryptoTrade:
                     self.logger2.info('bid_price:' + str(bid_price))
 
                 except Exception as e:
-                    print('last trade price is: '+str(last_trade_price))
+                    print('last trade price is: '+str(self.last_trade_price))
                     logging.exception("No such ticker or fail to get price")
 
                 # If the price is in range low to high, if the price drop 'percentage' then buy, else if price reach 'percentage' then sell
                 # Buy or Sell amount will be buy_power_percentage of buying power divided by current price of ticker.
                 if bid_price is not None and ask_price is not None and ask_price <= high and bid_price >= low:
-                    if ask_price <= last_trade_price*(1 - percentage):
+                    if ask_price <= self.last_trade_price*(1 - percentage):
                         try:
                             buying_amount = buying_power*buying_power_percentage/ask_price
                             self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
                             self.logger1.info("Bought " + str(buying_amount) + " of "+str(ticker)+" at price: "+str(ask_price))
 
                             #Update the last_trade_price and holding_amount
-                            last_trade_price = ask_price
+                            self.last_trade_price = ask_price
                             holding_amount = float(self.api.get_position(ticker_for_holding).qty)
-                            self.writeValue('./inputs/variable.py',last_trade_price)
+                            self.writeValue('./inputs/variable.py',self.last_trade_price)
                             buying_power = float(self.account.buying_power)
                         except Exception as e:
                             self.logger1.exception("Buy Order submission failed")
 
-                        self.logger1.info('last trade price is: ' + str(last_trade_price))
+                        self.logger1.info('last trade price is: ' + str(self.last_trade_price))
 
-                    elif bid_price >= last_trade_price*(1 + percentage):
+                    elif bid_price >= self.last_trade_price*(1 + percentage):
                         try:
                             selling_amount = buying_power * buying_power_percentage / bid_price
                             # corner case when sell_amount less than 2e-9
@@ -107,16 +106,16 @@ class CryptoTrade:
                                 holding_amount = float(self.api.get_position(ticker_for_holding).qty)
 
                             # Update the last_trade_price and holding_amount
-                            last_trade_price = bid_price
-                            self.writeValue('./inputs/variable.py', last_trade_price)
+                            self.last_trade_price = bid_price
+                            self.writeValue('./inputs/variable.py', self.last_trade_price)
                             buying_power = float(self.account.buying_power)
                         except Exception as e:
                             self.logger1.exception("Sell Order submission failed")
 
-                        self.logger1.info('last trade price is: ' + str(last_trade_price))
+                        self.logger1.info('last trade price is: ' + str(self.last_trade_price))
 
                 # When bid price in range [high, high + ask_standard], sell half of current holding amount
-                elif bid_price is not None and last_trade_price <= high and bid_price > high and bid_price <= high + ask_standard:
+                elif bid_price is not None and self.last_trade_price <= high and bid_price > high and bid_price <= high + ask_standard:
                     selling_amount = None
                     try:
                         selling_amount = float(self.api.get_position(ticker_for_holding).qty)
@@ -131,16 +130,14 @@ class CryptoTrade:
                         selling_amount *= 0.5
                         try:
                             self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
+                            self.last_trade_price = bid_price
+                            self.writeValue('./inputs/variable.py', self.last_trade_price)
                             self.logger1.info("Sold half amounts")
                         except Exception as e:
                             self.logger1.exception("Sell Half Order submission failed")
 
-                    if last_trade_price < bid_price:
-                        last_trade_price = bid_price
-                        self.writeValue('./inputs/variable.py', last_trade_price)
-
                 # When bid price in range [high + ask_standard, infinite], sell all amount currently hold
-                elif bid_price is not None and last_trade_price <= high + ask_standard and bid_price > high + ask_standard:
+                elif bid_price is not None and self.last_trade_price <= high + ask_standard and bid_price > high + ask_standard:
                     selling_amount = None
                     try:
                         selling_amount = float(self.api.get_position(ticker_for_holding).qty)
@@ -154,39 +151,39 @@ class CryptoTrade:
                     if selling_amount is not None and selling_amount > 0.000000002:
                         try:
                             self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-                            last_trade_price = bid_price
-                            self.writeValue('./inputs/variable.py', last_trade_price)
+                            self.last_trade_price = bid_price
+                            self.writeValue('./inputs/variable.py', self.last_trade_price)
                             self.logger1.info("Sold all amounts")
                         except Exception as e:
                             self.logger1.exception("Sell All Order submission failed")
 
                 # When ask price in range [low - bid_standard,low], buy twice of buying_power_percentage amount
-                elif ask_price is not None and last_trade_price >= low and ask_price < low and ask_price >= low - bid_standard:
+                elif ask_price is not None and self.last_trade_price >= low and ask_price < low and ask_price >= low - bid_standard:
                     try:
                         buying_amount = buying_power * buying_power_percentage/ask_price
                         print('buying_amount: ' + str(buying_amount))
                         self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
-                        last_trade_price = ask_price
-                        self.writeValue('./inputs/variable.py', last_trade_price)
+                        self.last_trade_price = ask_price
+                        self.writeValue('./inputs/variable.py', self.last_trade_price)
                         self.logger1.info("Bought in -1s")
                     except Exception as e:
                         self.logger1.exception("Buy in -1s Order submission failed")
 
                 # When ask price in range [0,low - bid_standard], buy tripe of buying_power_percentage amount
-                elif ask_price is not None and last_trade_price >= low - bid_standard and ask_price < low - bid_standard:
+                elif ask_price is not None and self.last_trade_price >= low - bid_standard and ask_price < low - bid_standard:
                     try:
                         buying_amount = buying_power * buying_power_percentage/ask_price
                         print('buying_amount: '+str(buying_amount))
                         self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
-                        last_trade_price = ask_price
-                        self.writeValue('./inputs/variable.py', last_trade_price)
+                        self.last_trade_price = ask_price
+                        self.writeValue('./inputs/variable.py', self.last_trade_price)
                         self.logger1.info("Bought in -2s or lower")
                     except Exception as e:
                         self.logger1.exception("Buy in -2s or lower Order submission failed")
 
                 time.sleep(1)
                 self.seconds += 1
-                self.writeValue('./inputs/variable.py',last_trade_price)
+                self.writeValue('./inputs/variable.py',self.last_trade_price)
 
     def dynamic_trade(self, ticker, percentage, buying_power_percentage, period, should_stop):
         while not should_stop.is_set():
@@ -195,7 +192,7 @@ class CryptoTrade:
             result = distribution.distribution_cal('./analysis/price_data.txt')
             self.grid_trading(ticker,result[0],result[1],percentage,buying_power_percentage,result[2],result[3],period)
             self.seconds = 0
-            self.writeValue('./inputs/variable.py',variable.last_trade_price)
+            self.writeValue('./inputs/variable.py',self.last_trade_price)
 
     def run_trade(self, ticker, percentage, buying_power_percentage,period):
         #Create a new thread to execute grid_trading

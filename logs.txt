@@ -433,3 +433,14 @@ requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='paper-api.alpaca.mark
 2023-04-20 19:34:56,678 - INFO - buying power is: 10362.094040235736
 2023-04-20 19:34:56,679 - INFO - last trade price is: 28221.59778
 2023-04-20 19:34:56,679 - INFO - holding amount is: 2.974049515
+2023-04-20 20:48:34,537 - INFO - buying power is: 10362.094040235736
+2023-04-20 20:48:34,538 - INFO - last trade price is: 28221.59778
+2023-04-20 20:48:34,538 - INFO - holding amount is: 2.974049515
+2023-04-20 20:48:35,077 - INFO - Sold 0.03661011906089457 of BTC/USD at price: 28303.906969
+2023-04-20 20:48:35,174 - INFO - last trade price is: 28303.906969
+2023-04-20 20:49:29,372 - INFO - buying power is: 12431.310825116181
+2023-04-20 20:49:29,373 - INFO - last trade price is: 28303.906969
+2023-04-20 20:49:29,373 - INFO - holding amount is: 2.937439396
+2023-04-20 20:49:42,834 - INFO - buying power is: 12431.310825116181
+2023-04-20 20:49:42,836 - INFO - last trade price is: 28303.906969
+2023-04-20 20:49:42,836 - INFO - holding amount is: 2.937439396
