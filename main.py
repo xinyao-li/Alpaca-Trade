@@ -154,13 +154,11 @@ class CryptoTrade:
                     if selling_amount is not None and selling_amount > 0.000000002:
                         try:
                             self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
+                            last_trade_price = bid_price
+                            self.writeValue('./inputs/variable.py', last_trade_price)
                             self.logger1.info("Sold all amounts")
                         except Exception as e:
                             self.logger1.exception("Sell All Order submission failed")
-
-                    if last_trade_price < bid_price:
-                        last_trade_price = bid_price
-                        self.writeValue('./inputs/variable.py', last_trade_price)
 
                 # When ask price in range [low - bid_standard,low], buy twice of buying_power_percentage amount
                 elif ask_price is not None and last_trade_price >= low and ask_price < low and ask_price >= low - bid_standard:
@@ -168,12 +166,11 @@ class CryptoTrade:
                         buying_amount = buying_power * buying_power_percentage/ask_price
                         print('buying_amount: ' + str(buying_amount))
                         self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
+                        last_trade_price = ask_price
+                        self.writeValue('./inputs/variable.py', last_trade_price)
                         self.logger1.info("Bought in -1s")
                     except Exception as e:
                         self.logger1.exception("Buy in -1s Order submission failed")
-
-                    last_trade_price = ask_price
-                    self.writeValue('./inputs/variable.py', last_trade_price)
 
                 # When ask price in range [0,low - bid_standard], buy tripe of buying_power_percentage amount
                 elif ask_price is not None and last_trade_price >= low - bid_standard and ask_price < low - bid_standard:
@@ -181,12 +178,11 @@ class CryptoTrade:
                         buying_amount = buying_power * buying_power_percentage/ask_price
                         print('buying_amount: '+str(buying_amount))
                         self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
+                        last_trade_price = ask_price
+                        self.writeValue('./inputs/variable.py', last_trade_price)
                         self.logger1.info("Bought in -2s or lower")
                     except Exception as e:
                         self.logger1.exception("Buy in -2s or lower Order submission failed")
-
-                    last_trade_price = ask_price
-                    self.writeValue('./inputs/variable.py', last_trade_price)
 
                 time.sleep(1)
                 self.seconds += 1

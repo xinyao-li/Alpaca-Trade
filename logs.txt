@@ -1,7 +1,435 @@
-2023-04-19 23:16:24,623 - INFO - buying power is: 20252.508087824943
-2023-04-19 23:16:24,625 - INFO - last trade price is: 30342
-2023-04-19 23:16:24,625 - INFO - holding amount is: 2.802279912
-2023-04-19 23:16:25,165 - INFO - Bought in -2s or lower
-2023-04-19 23:20:44,166 - INFO - buying power is: 16200.091763882054
-2023-04-19 23:20:44,167 - INFO - last trade price is: 29057.212799999
-2023-04-19 23:20:44,167 - INFO - holding amount is: 2.871853183
+2023-04-20 12:05:39,216 - INFO - buying power is: 16273.303676057112
+2023-04-20 12:05:39,218 - INFO - last trade price is: 29057.212799999
+2023-04-20 12:05:39,218 - INFO - holding amount is: 2.871853183
+2023-04-20 12:05:43,317 - INFO - Bought in -1s
+2023-04-20 12:06:32,637 - INFO - Sold 0.05746176467077388 of BTC/USD at price: 28320.229581
+2023-04-20 12:06:32,728 - INFO - last trade price is: 28320.229581
+2023-04-20 12:13:18,176 - INFO - Bought in -1s
+2023-04-20 12:16:01,299 - INFO - Bought in -2s or lower
+2023-04-20 12:35:12,763 - INFO - buying power is: 16273.303676057112
+2023-04-20 12:35:12,765 - INFO - last trade price is: 29057.212799999
+2023-04-20 12:35:12,765 - INFO - holding amount is: 2.986844997
+2023-04-20 12:35:13,042 - INFO - Bought in -1s
+2023-04-20 12:42:04,555 - INFO - Sold 0.057822289307313014 of BTC/USD at price: 28143.65164542
+2023-04-20 12:42:04,656 - INFO - last trade price is: 28143.65164542
+2023-04-20 12:43:30,379 - INFO - Sold 0.057751141182339705 of BTC/USD at price: 28178.324
+2023-04-20 12:43:30,480 - INFO - last trade price is: 28178.324
+2023-04-20 13:15:52,817 - ERROR - Buy in -1s Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1322, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 303, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 264, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+TimeoutError: [Errno 60] Operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 357, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 170, in grid_trading
+    self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 232, in _one_request
+    resp = self._session.request(method, url, **opts)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 578, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+2023-04-20 13:33:07,250 - INFO - Sold 0.057601647838865164 of BTC/USD at price: 28251.4551
+2023-04-20 13:33:07,341 - INFO - last trade price is: 28251.4551
+2023-04-20 14:32:50,032 - ERROR - Buy Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1322, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 303, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 264, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+TimeoutError: [Errno 60] Operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 357, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 81, in grid_trading
+    self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 232, in _one_request
+    resp = self._session.request(method, url, **opts)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 578, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+2023-04-20 14:32:50,040 - INFO - last trade price is: 28251.4551
+2023-04-20 14:32:51,773 - INFO - Bought 0.05771378270081813 of BTC/USD at price: 28196.564
+2023-04-20 14:32:51,865 - INFO - last trade price is: 28196.564
+2023-04-20 14:34:23,187 - INFO - Sold 0.057653868329153285 of BTC/USD at price: 28225.8661
+2023-04-20 14:34:23,289 - INFO - last trade price is: 28225.8661
+2023-04-20 14:43:29,359 - INFO - Bought 0.0577249049022095 of BTC/USD at price: 28191.1312
+2023-04-20 14:43:29,463 - INFO - last trade price is: 28191.1312
+2023-04-20 15:00:07,136 - INFO - Sold 0.05764861605698082 of BTC/USD at price: 28228.43771301
+2023-04-20 15:00:07,228 - INFO - last trade price is: 28228.43771301
+2023-04-20 15:02:35,229 - INFO - Sold 0.057590059277255634 of BTC/USD at price: 28257.14
+2023-04-20 15:02:35,332 - INFO - last trade price is: 28257.14
+2023-04-20 15:04:59,301 - INFO - Sold 0.057519910453343696 of BTC/USD at price: 28291.6012
+2023-04-20 15:04:59,400 - INFO - last trade price is: 28291.6012
+2023-04-20 15:07:05,845 - INFO - Sold 0.05745873385060755 of BTC/USD at price: 28321.72341
+2023-04-20 15:07:05,947 - INFO - last trade price is: 28321.72341
+2023-04-20 15:10:00,125 - INFO - Sold 0.05740090759697615 of BTC/USD at price: 28350.255
+2023-04-20 15:10:00,219 - INFO - last trade price is: 28350.255
+2023-04-20 15:10:48,294 - INFO - buying power is: 16273.303676057112
+2023-04-20 15:10:48,297 - INFO - last trade price is: 29057.212799999
+2023-04-20 15:10:48,297 - INFO - holding amount is: 2.641482156
+2023-04-20 15:12:10,976 - INFO - Bought 0.05736823608344396 of BTC/USD at price: 28366.40062
+2023-04-20 15:12:11,075 - INFO - last trade price is: 28366.40062
+2023-04-20 15:14:41,444 - INFO - Bought 0.05742620522319668 of BTC/USD at price: 28337.76603
+2023-04-20 15:14:41,546 - INFO - last trade price is: 28337.76603
+2023-04-20 15:27:42,003 - INFO - Bought 0.05748528956550761 of BTC/USD at price: 28308.64
+2023-04-20 15:27:42,101 - INFO - last trade price is: 28308.64
+2023-04-20 15:39:30,999 - ERROR - Buy Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1322, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 303, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 264, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+TimeoutError: [Errno 60] Operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 357, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 81, in grid_trading
+    self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 232, in _one_request
+    resp = self._session.request(method, url, **opts)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 578, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+2023-04-20 15:39:31,002 - INFO - last trade price is: 28308.64
+2023-04-20 15:56:48,978 - INFO - Bought 0.0575562247990744 of BTC/USD at price: 28273.750985
+2023-04-20 15:56:49,070 - INFO - last trade price is: 28273.750985
+2023-04-20 16:04:50,230 - ERROR - Sell Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1322, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 303, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 264, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+TimeoutError: [Errno 60] Operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 357, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 105, in grid_trading
+    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 232, in _one_request
+    resp = self._session.request(method, url, **opts)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 578, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+2023-04-20 16:04:50,234 - INFO - last trade price is: 28273.750985
+2023-04-20 16:04:51,768 - INFO - Sold 0.05749391376224416 of BTC/USD at price: 28304.39365
+2023-04-20 16:04:51,867 - INFO - last trade price is: 28304.39365
+2023-04-20 16:33:23,557 - INFO - Bought 0.05760915785088749 of BTC/USD at price: 28247.7722
+2023-04-20 16:33:23,658 - INFO - last trade price is: 28247.7722
+2023-04-20 17:04:41,598 - ERROR - Sell Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1322, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 303, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 264, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+TimeoutError: [Errno 60] Operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 357, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 105, in grid_trading
+    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 232, in _one_request
+    resp = self._session.request(method, url, **opts)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 578, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+2023-04-20 17:04:41,604 - INFO - last trade price is: 28247.7722
+2023-04-20 17:04:43,150 - INFO - Sold 0.057524731761220006 of BTC/USD at price: 28289.23000216
+2023-04-20 17:04:43,250 - INFO - last trade price is: 28289.23000216
+2023-04-20 17:08:24,782 - INFO - buying power is: 16273.303676057112
+2023-04-20 17:08:24,784 - INFO - last trade price is: 29057.212799999
+2023-04-20 17:08:24,784 - INFO - holding amount is: 2.813391219
+2023-04-20 17:08:25,082 - INFO - Bought 0.05743272727010543 of BTC/USD at price: 28334.548
+2023-04-20 17:08:25,182 - INFO - last trade price is: 28334.548
+2023-04-20 17:10:25,701 - INFO - Bought 0.05749491498842165 of BTC/USD at price: 28303.9007525
+2023-04-20 17:10:25,803 - INFO - last trade price is: 28303.9007525
+2023-04-20 17:30:05,423 - INFO - Bought 0.057739122194418194 of BTC/USD at price: 28184.1896059
+2023-04-20 17:30:05,523 - INFO - last trade price is: 28184.1896059
+2023-04-20 17:47:39,137 - ERROR - Sell Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1322, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 303, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 264, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+TimeoutError: [Errno 60] Operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 357, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 105, in grid_trading
+    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 232, in _one_request
+    resp = self._session.request(method, url, **opts)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 578, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+2023-04-20 17:47:39,141 - INFO - last trade price is: 28184.1896059
+2023-04-20 17:47:41,167 - INFO - Sold 0.05750897804822374 of BTC/USD at price: 28296.979408
+2023-04-20 17:47:41,339 - INFO - last trade price is: 28296.979408
+2023-04-20 19:34:39,791 - INFO - buying power is: 12951.998204108535
+2023-04-20 19:34:39,792 - INFO - last trade price is: 28296.979408
+2023-04-20 19:34:39,792 - INFO - holding amount is: 2.928238203
+2023-04-20 19:34:40,341 - INFO - Bought 0.04589392246702389 of BTC/USD at price: 28221.59778
+2023-04-20 19:34:40,437 - INFO - last trade price is: 28221.59778
+2023-04-20 19:34:56,678 - INFO - buying power is: 10362.094040235736
+2023-04-20 19:34:56,679 - INFO - last trade price is: 28221.59778
+2023-04-20 19:34:56,679 - INFO - holding amount is: 2.974049515

@@ -11,10 +11,9 @@ account = api.get_account()
 x = 1
 list = []
 list.append('BTC/USD')
-last_trade_price = variable.last_trade_price
 print(api.get_position('BTCUSD').qty)
-#with open('variable.py', 'w') as f:
-#    f.write(f'last_trade_price={last_trade_price}\n')
+with open('variable.py', 'w') as f:
+    f.write(f'last_trade_price={variable.last_trade_price}\n')
 #    f.write(f'holding_amount={holding_amount}\n')
 '''
 while x > 0:
