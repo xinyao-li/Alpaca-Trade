@@ -12,6 +12,15 @@
 2023-04-21 15:42:42,273 - INFO - last trade price is: 27248.55
 2023-04-21 15:52:39,858 - INFO - Sold 0.62935923 of BTC/USD at price: 27276.105
 2023-04-21 15:52:39,953 - ERROR - Sell Order submission failed
+
+2023-04-21 16:48:08,931 - INFO - buying power is: 171815.13376228517
+2023-04-21 16:48:08,931 - INFO - last trade price is: 27309.39
+2023-04-21 16:48:08,931 - INFO - holding amount is: 0
+2023-04-21 21:59:00,076 - INFO - buying power is: 171334.53277036993
+2023-04-21 21:59:00,077 - INFO - last trade price is: 27309.39
+2023-04-21 21:59:00,077 - INFO - holding amount is: 0.002839998
+2023-04-21 21:59:00,616 - INFO - Sold 0.002839998 of BTC/USD at price: 27354.4236
+2023-04-21 21:59:00,706 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
     resp.raise_for_status()
@@ -33,8 +42,8 @@ Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
     raise APIError(error, http_error)
 alpaca_trade_api.rest.APIError: position does not exist
-2023-04-21 15:52:39,963 - INFO - last trade price is: 27248.55
-2023-04-21 15:52:41,243 - ERROR - Sell Order submission failed
+2023-04-21 21:59:00,710 - INFO - last trade price is: 27309.39
+2023-04-21 21:59:02,027 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
     resp.raise_for_status()
@@ -55,9 +64,9 @@ Traceback (most recent call last):
     return self._one_request(method, url, opts, retry)
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
     raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 15:52:41,245 - INFO - last trade price is: 27248.55
-2023-04-21 15:52:42,556 - ERROR - Sell Order submission failed
+alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.002839998, available: 0)
+2023-04-21 21:59:02,027 - INFO - last trade price is: 27309.39
+2023-04-21 21:59:03,364 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
     resp.raise_for_status()
@@ -78,70 +87,9 @@ Traceback (most recent call last):
     return self._one_request(method, url, opts, retry)
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
     raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 15:52:42,557 - INFO - last trade price is: 27248.55
-2023-04-21 16:01:51,924 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
-    six.raise_from(e, None)
-  File "<string>", line 3, in raise_from
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
-    httplib_response = conn.getresponse()
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1322, in getresponse
-    response.begin()
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 303, in begin
-    version, status, reason = self._read_status()
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 264, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
-    return self._sock.recv_into(b)
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1241, in recv_into
-    return self.read(nbytes, buffer)
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1099, in read
-    return self._sslobj.read(len, buffer)
-TimeoutError: [Errno 60] Operation timed out
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 489, in send
-    resp = conn.urlopen(
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
-    retries = retries.increment(
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 770, in reraise
-    raise value
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
-    httplib_response = self._make_request(
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 451, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 357, in _raise_timeout
-    raise ReadTimeoutError(
-urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 232, in _one_request
-    resp = self._session.request(method, url, **opts)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
-    r = adapter.send(request, **kwargs)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 578, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
-2023-04-21 16:01:51,931 - INFO - last trade price is: 27248.55
-2023-04-21 16:01:53,485 - ERROR - Sell Order submission failed
+alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.002839998, available: 0)
+2023-04-21 21:59:03,365 - INFO - last trade price is: 27309.39
+2023-04-21 21:59:04,664 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
     resp.raise_for_status()
@@ -162,9 +110,9 @@ Traceback (most recent call last):
     return self._one_request(method, url, opts, retry)
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
     raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:01:53,487 - INFO - last trade price is: 27248.55
-2023-04-21 16:01:54,796 - ERROR - Sell Order submission failed
+alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.002839998, available: 0)
+2023-04-21 21:59:04,665 - INFO - last trade price is: 27309.39
+2023-04-21 21:59:05,950 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
     resp.raise_for_status()
@@ -185,9 +133,9 @@ Traceback (most recent call last):
     return self._one_request(method, url, opts, retry)
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
     raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:01:54,798 - INFO - last trade price is: 27248.55
-2023-04-21 16:01:56,107 - ERROR - Sell Order submission failed
+alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.002839998, available: 0)
+2023-04-21 21:59:05,951 - INFO - last trade price is: 27309.39
+2023-04-21 21:59:07,249 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
     resp.raise_for_status()
@@ -208,9 +156,9 @@ Traceback (most recent call last):
     return self._one_request(method, url, opts, retry)
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
     raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:01:56,108 - INFO - last trade price is: 27248.55
-2023-04-21 16:02:00,992 - ERROR - Sell Order submission failed
+alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.002839998, available: 0)
+2023-04-21 21:59:07,267 - INFO - last trade price is: 27309.39
+2023-04-21 21:59:08,566 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
     resp.raise_for_status()
@@ -231,9 +179,9 @@ Traceback (most recent call last):
     return self._one_request(method, url, opts, retry)
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
     raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:02:00,994 - INFO - last trade price is: 27248.55
-2023-04-21 16:02:02,293 - ERROR - Sell Order submission failed
+alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.002839998, available: 0)
+2023-04-21 21:59:08,567 - INFO - last trade price is: 27309.39
+2023-04-21 21:59:09,857 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
     resp.raise_for_status()
@@ -254,9 +202,9 @@ Traceback (most recent call last):
     return self._one_request(method, url, opts, retry)
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
     raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:02:02,294 - INFO - last trade price is: 27248.55
-2023-04-21 16:02:03,614 - ERROR - Sell Order submission failed
+alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.002839998, available: 0)
+2023-04-21 21:59:09,858 - INFO - last trade price is: 27309.39
+2023-04-21 21:59:11,147 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
     resp.raise_for_status()
@@ -277,9 +225,9 @@ Traceback (most recent call last):
     return self._one_request(method, url, opts, retry)
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
     raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:02:03,614 - INFO - last trade price is: 27248.55
-2023-04-21 16:02:44,313 - ERROR - Sell Order submission failed
+alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.002839998, available: 0)
+2023-04-21 21:59:11,147 - INFO - last trade price is: 27309.39
+2023-04-21 21:59:12,428 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
     resp.raise_for_status()
@@ -300,9 +248,9 @@ Traceback (most recent call last):
     return self._one_request(method, url, opts, retry)
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
     raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:02:44,315 - INFO - last trade price is: 27248.55
-2023-04-21 16:02:45,607 - ERROR - Sell Order submission failed
+alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.002839998, available: 0)
+2023-04-21 21:59:12,430 - INFO - last trade price is: 27309.39
+2023-04-21 21:59:13,729 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
     resp.raise_for_status()
@@ -323,9 +271,9 @@ Traceback (most recent call last):
     return self._one_request(method, url, opts, retry)
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
     raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:02:45,608 - INFO - last trade price is: 27248.55
-2023-04-21 16:02:46,897 - ERROR - Sell Order submission failed
+alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.002839998, available: 0)
+2023-04-21 21:59:13,730 - INFO - last trade price is: 27309.39
+2023-04-21 21:59:15,030 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
     resp.raise_for_status()
@@ -346,9 +294,9 @@ Traceback (most recent call last):
     return self._one_request(method, url, opts, retry)
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
     raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:02:46,898 - INFO - last trade price is: 27248.55
-2023-04-21 16:02:48,199 - ERROR - Sell Order submission failed
+alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.002839998, available: 0)
+2023-04-21 21:59:15,030 - INFO - last trade price is: 27309.39
+2023-04-21 21:59:16,331 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
     resp.raise_for_status()
@@ -369,9 +317,9 @@ Traceback (most recent call last):
     return self._one_request(method, url, opts, retry)
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
     raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:02:48,201 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:10,881 - ERROR - Sell Order submission failed
+alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.002839998, available: 0)
+2023-04-21 21:59:16,332 - INFO - last trade price is: 27309.39
+2023-04-21 21:59:17,614 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
     resp.raise_for_status()
@@ -392,492 +340,5 @@ Traceback (most recent call last):
     return self._one_request(method, url, opts, retry)
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
     raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:03:10,884 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:12,171 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:03:12,171 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:13,455 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:03:13,456 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:24,355 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:03:24,357 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:25,646 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:03:25,647 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:26,927 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:03:26,928 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:28,220 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:03:28,231 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:29,511 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:03:29,513 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:30,791 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:03:30,793 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:32,082 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:03:32,084 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:33,393 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:03:33,396 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:34,692 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:03:34,693 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:35,986 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:03:35,988 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:40,861 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.62935923, available: 0)
-2023-04-21 16:03:40,863 - INFO - last trade price is: 27248.55
-2023-04-21 16:03:42,061 - INFO - last trade price is: 27309.39
-2023-04-21 16:07:01,161 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.629173659, available: 0)
-2023-04-21 16:07:01,166 - INFO - last trade price is: 27309.39
-2023-04-21 16:07:25,325 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.629348999, available: 0)
-2023-04-21 16:07:25,329 - INFO - last trade price is: 27309.39
-2023-04-21 16:07:26,624 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.629348999, available: 0)
-2023-04-21 16:07:26,626 - INFO - last trade price is: 27309.39
-2023-04-21 16:07:27,927 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.629348999, available: 0)
-2023-04-21 16:07:27,929 - INFO - last trade price is: 27309.39
-2023-04-21 16:07:29,238 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.629348557, available: 0)
-2023-04-21 16:07:29,239 - INFO - last trade price is: 27309.39
-2023-04-21 16:07:30,517 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.629348557, available: 0)
-2023-04-21 16:07:30,518 - INFO - last trade price is: 27309.39
-2023-04-21 16:07:31,810 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.629348557, available: 0)
-2023-04-21 16:07:31,825 - INFO - last trade price is: 27309.39
-2023-04-21 16:07:33,133 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.629348557, available: 0)
-2023-04-21 16:07:33,136 - INFO - last trade price is: 27309.39
-2023-04-21 16:07:47,816 - INFO - buying power is: 171815.13376228517
-2023-04-21 16:07:47,816 - INFO - last trade price is: 27309.39
-2023-04-21 16:07:47,816 - INFO - holding amount is: 0
+alpaca_trade_api.rest.APIError: insufficient balance for BTC (requested: 0.002839998, available: 0)
+2023-04-21 21:59:17,615 - INFO - last trade price is: 27309.39

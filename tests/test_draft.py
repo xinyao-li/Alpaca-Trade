@@ -11,9 +11,9 @@ account = api.get_account()
 x = 1
 list = []
 list.append('BTC/USD')
-print(api.get_position('BTCUSD').qty)
-with open('variable.py', 'w') as f:
-    f.write(f'last_trade_price={variable.last_trade_price}\n')
+#print(api.get_position('BTCUSD').qty)
+#with open('variable.py', 'w') as f:
+#    f.write(f'last_trade_price={variable.last_trade_price}\n')
 #    f.write(f'holding_amount={holding_amount}\n')
 '''
 while x > 0:
@@ -25,3 +25,6 @@ while x > 0:
     #print('bought')
     time.sleep(1)
 '''
+ask_price = api.get_latest_crypto_quotes(list,"us")['BTC/USD'].ap
+print('ask price:' + str(ask_price))
+api.submit_order('BTC/USD', 0.0001, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)

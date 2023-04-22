@@ -62,8 +62,8 @@ class CryptoTrade:
                 try:
                     bid_price = self.api.get_latest_crypto_quotes(list, "us")[ticker].bp
                     ask_price = self.api.get_latest_crypto_quotes(list, "us")[ticker].ap
-                    print("bid price is: " + str(bid_price))
-                    print("ask price is: "+str(ask_price))
+                    #print("bid price is: " + str(bid_price))
+                    #print("ask price is: "+str(ask_price))
                     self.logger2.info('ask_price:' + str(ask_price))
                     self.logger2.info('bid_price:' + str(bid_price))
 
@@ -77,7 +77,7 @@ class CryptoTrade:
                     if ask_price <= self.last_trade_price*(1 - percentage):
                         try:
                             buying_amount = self.buying_power*buying_power_percentage/ask_price
-                            self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
+                            self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
                             self.logger1.info("Bought " + str(buying_amount) + " of "+str(ticker)+" at price: "+str(ask_price))
 
                             #Update the last_trade_price and holding_amount
@@ -101,7 +101,7 @@ class CryptoTrade:
                             if self.holding_amount < selling_amount:
                                 selling_amount = self.holding_amount
                             if selling_amount > 0.000000002:
-                                self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
+                                self.api.submit_order(ticker, selling_amount, 'sell', 'limit', time_in_force='gtc', limit_price=bid_price)
                                 self.logger1.info("Sold " + str(selling_amount) + " of " + str(ticker) + " at price: " + str(bid_price))
                                 self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
 
@@ -129,7 +129,7 @@ class CryptoTrade:
                     if selling_amount is not None and selling_amount > 0.000000002:
                         selling_amount *= 0.5
                         try:
-                            self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
+                            self.api.submit_order(ticker, selling_amount, 'sell', 'limit', time_in_force='gtc', limit_price=bid_price)
                             self.last_trade_price = bid_price
                             self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
                             self.buying_power = float(self.account.buying_power)
@@ -154,7 +154,7 @@ class CryptoTrade:
 
                     if selling_amount is not None and selling_amount > 0.000000002:
                         try:
-                            self.api.submit_order(ticker, selling_amount, 'sell', 'market', time_in_force='gtc')
+                            self.api.submit_order(ticker, selling_amount, 'sell', 'limit', time_in_force='gtc', limit_price=bid_price)
                             self.last_trade_price = bid_price
                             self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
                             self.buying_power = float(self.account.buying_power)
@@ -170,7 +170,7 @@ class CryptoTrade:
                     try:
                         buying_amount = self.buying_power * buying_power_percentage/ask_price
                         print('buying_amount: ' + str(buying_amount))
-                        self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
+                        self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc', limit_price=ask_price)
                         self.last_trade_price = ask_price
                         self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
                         self.buying_power = float(self.account.buying_power)
@@ -186,7 +186,7 @@ class CryptoTrade:
                     try:
                         buying_amount = self.buying_power * buying_power_percentage/ask_price
                         print('buying_amount: '+str(buying_amount))
-                        self.api.submit_order(ticker, buying_amount, 'buy', 'market', time_in_force='gtc')
+                        self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc', limit_price=ask_price)
                         self.last_trade_price = ask_price
                         self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
                         self.buying_power = float(self.account.buying_power)
