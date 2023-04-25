@@ -206,6 +206,7 @@ class CryptoTrade:
             self.logger2.info(datetime.datetime.now())
             distribution = normal_distribution.Distribution()
             result = distribution.distribution_cal('./analysis/price_data.txt')
+            self.buying_power = float(self.account.buying_power)
             self.grid_trading(ticker,result[0],result[1],percentage,buying_power_percentage,result[2],result[3],period)
             self.seconds = 0
             self.writeValue('./inputs/variable.py',self.last_trade_price)
