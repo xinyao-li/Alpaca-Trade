@@ -37,10 +37,17 @@ class CryptoData:
 
             time.sleep(1)
 
+    def run_trade(self, ticker):
+        #Create a new thread to execute grid_trading
+        should_stop = threading.Event()
+        thread = threading.Thread(target=self.data_retrieve(ticker, should_stop))
+        thread.start()
+        thread.join()
+
 if __name__ == '__main__':
     should_stop = threading.Event()
     current_time = datetime.datetime.now()
     crypt_data = CryptoData()
     print('data collection start:')
     crypt_data.logger.info(current_time)
-    crypt_data.data_retrieve('BTC/USD',should_stop)
+    crypt_data.run_trade('BTC/USD')

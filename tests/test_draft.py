@@ -25,6 +25,13 @@ while x > 0:
     #print('bought')
     time.sleep(1)
 '''
-ask_price = api.get_latest_crypto_quotes(list,"us")['BTC/USD'].ap
-print('ask price:' + str(ask_price))
-api.submit_order('BTC/USD', 0.0001, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
+def test():
+    buying_power = float(account.buying_power)
+    print('buying power is '+ str(buying_power))
+    ask_price = api.get_latest_crypto_quotes(list,"us")['BTC/USD'].ap
+    print('ask price:' + str(ask_price))
+    api.submit_order('BTC/USD', 0.0001, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
+    buying_power = float(api.get_account().buying_power)
+    print('buying power is '+ str(buying_power))
+if __name__ == '__main__':
+    test()

@@ -1,55 +1,103 @@
-2023-04-24 11:31:36,912 - INFO - buying power is: 171936.35341472225
-2023-04-24 11:31:36,915 - INFO - last trade price is: 27337.8741
-2023-04-24 11:31:36,915 - INFO - holding amount is: 0
-2023-04-24 11:31:37,413 - INFO - last trade price is: 27444.90154
-2023-04-24 11:39:55,746 - INFO - Bought 0.6275962767168262 of BTC/USD at price: 27396.01234
-2023-04-24 11:39:55,837 - ERROR - Buy Order submission failed
+2023-04-28 15:08:15,738 - INFO - buying power is: 20736.890849008036
+2023-04-28 15:08:15,739 - INFO - last trade price is: 29527.72
+2023-04-28 15:08:15,739 - INFO - holding amount is: 2.557906988
+2023-04-28 15:08:16,386 - INFO - Bought 0.07051047395543224 of BTC/USD at price: 29409.6602756
+2023-04-28 15:08:16,534 - INFO - last trade price is: 29409.6602756
+2023-04-28 15:08:22,672 - INFO - buying power is: 20736.890849008036
+2023-04-28 15:08:22,674 - INFO - last trade price is: 29409.6602756
+2023-04-28 15:08:22,674 - INFO - holding amount is: 2.628290542
+2023-04-28 17:51:57,604 - INFO - Bought in -1s
+2023-04-28 17:51:57,606 - INFO - last trade price is: 29340.91295
+2023-04-28 17:57:51,177 - INFO - buying power is: 20736.890849008036
+2023-04-28 17:57:51,178 - INFO - last trade price is: 29340.91295
+2023-04-28 17:57:51,178 - INFO - holding amount is: 0
+2023-04-28 17:57:52,182 - INFO - Bought in -2s or lower
+2023-04-28 17:57:52,183 - INFO - last trade price is: 29305.865
+2023-04-28 19:31:39,525 - INFO - Sold 0.07064222232263065 of BTC/USD at price: 29354.811
+2023-04-28 19:31:39,611 - INFO - last trade price is: 29354.811
+2023-04-28 21:13:12,264 - ERROR - Sell Order submission failed
 Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
-    resp.raise_for_status()
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
-    raise HTTPError(http_error_msg, response=self)
-requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://paper-api.alpaca.markets/v2/positions/BTCUSD
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1322, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 303, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 264, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+ConnectionResetError: [Errno 54] Connection reset by peer
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 85, in grid_trading
-    self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 504, in get_position
-    resp = self.get('/positions/{}'.format(symbol))
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 250, in get
-    return self._request('GET', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 769, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1322, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 303, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 264, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 105, in grid_trading
+    self.api.submit_order(ticker, selling_amount, 'sell', 'limit', time_in_force='gtc', limit_price=bid_price)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
   File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
     return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
-    raise APIError(error, http_error)
-alpaca_trade_api.rest.APIError: position does not exist
-2023-04-24 11:39:55,841 - INFO - last trade price is: 27396.01234
-2023-04-24 11:41:50,331 - INFO - buying power is: 171936.35341472225
-2023-04-24 11:41:50,332 - INFO - last trade price is: 27396.01234
-2023-04-24 11:41:50,332 - INFO - holding amount is: 0.627094198
-2023-04-24 11:42:30,846 - INFO - buying power is: 137549.08277105415
-2023-04-24 11:42:30,847 - INFO - last trade price is: 27396.01234
-2023-04-24 11:42:30,847 - INFO - holding amount is: 0.627094198
-2023-04-24 11:42:57,567 - INFO - Bought in -1s
-2023-04-24 11:42:57,567 - INFO - last trade price is: 27349.74254731
-2023-04-24 11:44:33,627 - INFO - buying power is: 110039.26622837664
-2023-04-24 11:44:33,627 - INFO - last trade price is: 27349.74254731
-2023-04-24 11:44:33,627 - INFO - holding amount is: 1.129618282
-2023-04-24 11:47:29,657 - INFO - Bought in -1s
-2023-04-24 11:47:29,658 - INFO - last trade price is: 27325.3
-2023-04-24 11:56:23,410 - INFO - Sold 0.4022635992628181 of BTC/USD at price: 27355.01458
-2023-04-24 11:56:23,510 - INFO - last trade price is: 27355.01458
-2023-04-24 12:36:49,459 - INFO - Sold 0.40176005311700796 of BTC/USD at price: 27389.3
-2023-04-24 12:36:49,596 - INFO - last trade price is: 27389.3
-2023-04-24 13:07:13,070 - INFO - Sold 0.4012740352717022 of BTC/USD at price: 27422.47356071
-2023-04-24 13:07:13,163 - INFO - last trade price is: 27422.47356071
-2023-04-24 13:13:58,755 - INFO - Sold 0.326370599 of BTC/USD at price: 27451.037
-2023-04-24 13:13:58,857 - INFO - last trade price is: 27451.037
-2023-04-24 13:14:29,964 - INFO - buying power is: 110039.26622837664
-2023-04-24 13:14:29,964 - INFO - last trade price is: 27451.037
-2023-04-24 13:14:29,964 - INFO - holding amount is: 0.226370599
-2023-04-24 13:59:26,865 - INFO - buying power is: 171906.99252064293
-2023-04-24 13:59:26,867 - INFO - last trade price is: 27451.037
-2023-04-24 13:59:26,867 - INFO - holding amount is: 0
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 232, in _one_request
+    resp = self._session.request(method, url, **opts)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 547, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+2023-04-28 21:13:12,268 - INFO - last trade price is: 29354.811
+2023-04-28 22:20:17,449 - INFO - Sold half amounts
+2023-04-28 22:20:17,450 - INFO - last trade price is: 29437.084
+2023-04-28 22:35:43,002 - INFO - buying power is: 20736.890849008036
+2023-04-28 22:35:43,005 - INFO - last trade price is: 29437.084
+2023-04-28 22:35:43,005 - INFO - holding amount is: 0
+2023-04-28 22:56:03,103 - INFO - buying power is: 20736.890849008036
+2023-04-28 22:56:03,104 - INFO - last trade price is: 29437.084
+2023-04-28 22:56:03,106 - INFO - holding amount is: 1.349414812
+2023-04-28 23:32:33,696 - INFO - Bought 0.07055463217865068 of BTC/USD at price: 29391.25357
+2023-04-28 23:32:33,791 - INFO - last trade price is: 29391.25357

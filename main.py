@@ -25,9 +25,7 @@ class CryptoTrade:
 
     # Instantiate REST API Connection
     api = tradeapi.REST(key_id=config.API_KEY, secret_key=config.SECRET_KEY, base_url=config.BASE_URL, api_version='v2')
-    account = api.get_account()
     seconds = variable.seconds
-    buying_power = float(account.buying_power)
     last_trade_price = variable.last_trade_price
     holding_amount = None
     '''
@@ -40,6 +38,7 @@ class CryptoTrade:
     # Function to generate a list of all bought trade you made and sort by buy in price
     def grid_trading(self, ticker, high, low, percentage, buying_power_percentage,bid_standard,ask_standard,period):
         # Get the buying power from account
+        self.buying_power = float(self.api.get_account().buying_power)
         ticker_for_holding = ticker.replace('/','')
         try:
             self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
@@ -84,7 +83,7 @@ class CryptoTrade:
                             self.last_trade_price = ask_price
                             self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
                             self.writeValue('./inputs/variable.py',self.last_trade_price)
-                            self.buying_power = float(self.account.buying_power)
+                            self.buying_power = float(self.api.get_account().buying_power)
                         except Exception as e:
                             self.logger1.exception("Buy Order submission failed")
 
@@ -100,6 +99,7 @@ class CryptoTrade:
 
                             if self.holding_amount < selling_amount:
                                 selling_amount = self.holding_amount
+                                self.logger1.info('Not enough amount to sold')
                             if selling_amount > 0.000000002:
                                 self.api.submit_order(ticker, selling_amount, 'sell', 'limit', time_in_force='gtc', limit_price=bid_price)
                                 self.logger1.info("Sold " + str(selling_amount) + " of " + str(ticker) + " at price: " + str(bid_price))
@@ -108,7 +108,7 @@ class CryptoTrade:
                             # Update the last_trade_price and holding_amount
                             self.last_trade_price = bid_price
                             self.writeValue('./inputs/variable.py', self.last_trade_price)
-                            self.buying_power = float(self.account.buying_power)
+                            self.buying_power = float(self.api.get_account().buying_power)
                         except Exception as e:
                             self.logger1.exception("Sell Order submission failed")
 
@@ -125,6 +125,7 @@ class CryptoTrade:
                     temp = str(selling_amount)
                     if float(temp[len(temp)-1]) >= 8:
                         selling_amount = 0
+                        self.logger1.info('Not enough amount to sold')
 
                     if selling_amount is not None and selling_amount > 0.000000002:
                         selling_amount *= 0.5
@@ -132,7 +133,7 @@ class CryptoTrade:
                             self.api.submit_order(ticker, selling_amount, 'sell', 'limit', time_in_force='gtc', limit_price=bid_price)
                             self.last_trade_price = bid_price
                             self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
-                            self.buying_power = float(self.account.buying_power)
+                            self.buying_power = float(self.api.get_account().buying_power)
                             self.writeValue('./inputs/variable.py', self.last_trade_price)
                             self.logger1.info("Sold half amounts")
                         except Exception as e:
@@ -151,13 +152,14 @@ class CryptoTrade:
                     temp = str(selling_amount)
                     if float(temp[len(temp) - 1]) >= 8:
                         selling_amount = 0
+                        self.logger1.info('Not enough amount to sold')
 
                     if selling_amount is not None and selling_amount > 0.000000002:
                         try:
                             self.api.submit_order(ticker, selling_amount, 'sell', 'limit', time_in_force='gtc', limit_price=bid_price)
                             self.last_trade_price = bid_price
                             self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
-                            self.buying_power = float(self.account.buying_power)
+                            self.buying_power = float(self.api.get_account().buying_power)
                             self.writeValue('./inputs/variable.py', self.last_trade_price)
                             self.logger1.info("Sold all amounts")
                         except Exception as e:
@@ -173,7 +175,7 @@ class CryptoTrade:
                         self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc', limit_price=ask_price)
                         self.last_trade_price = ask_price
                         self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
-                        self.buying_power = float(self.account.buying_power)
+                        self.buying_power = float(self.api.get_account().buying_power)
                         self.writeValue('./inputs/variable.py', self.last_trade_price)
                         self.logger1.info("Bought in -1s")
                     except Exception as e:
@@ -189,7 +191,7 @@ class CryptoTrade:
                         self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc', limit_price=ask_price)
                         self.last_trade_price = ask_price
                         self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
-                        self.buying_power = float(self.account.buying_power)
+                        self.buying_power = float(self.api.get_account().buying_power)
                         self.writeValue('./inputs/variable.py', self.last_trade_price)
                         self.logger1.info("Bought in -2s or lower")
                     except Exception as e:
@@ -206,7 +208,6 @@ class CryptoTrade:
             self.logger2.info(datetime.datetime.now())
             distribution = normal_distribution.Distribution()
             result = distribution.distribution_cal('./analysis/price_data.txt')
-            self.buying_power = float(self.account.buying_power)
             self.grid_trading(ticker,result[0],result[1],percentage,buying_power_percentage,result[2],result[3],period)
             self.seconds = 0
             self.writeValue('./inputs/variable.py',self.last_trade_price)
