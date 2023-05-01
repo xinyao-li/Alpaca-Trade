@@ -169,6 +169,7 @@ class CryptoTrade:
                 self.trend = 'U'
             else:
                 self.trend = 'D'
+            self.pos_pct = cur_pos_pct
             print('current positive percentage: '+str(self.pos_pct))
             print('trend is: '+ str(self.trend))
             self.pos_pct = cur_pos_pct
