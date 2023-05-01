@@ -30,6 +30,7 @@ class CryptoTrade:
     holding_amount = None
     trend = None
     prev_trend = None
+    pos_pct = 0
 
     # Function to generate a list of all bought trade you made and sort by buy in price
     def grid_trading(self, ticker, high, low, percentage, buying_power_percentage,bid_standard,ask_standard,period):
@@ -163,12 +164,14 @@ class CryptoTrade:
             self.prev_trend = self.trend
             distribution = normal_distribution.Distribution()
             result = distribution.distribution_cal('./analysis/price_data.txt')
-            pos_pct = result[4]['1s'] + result[4]['2s'] + result[4]['3s']
-            neg_pct = result[4]['-1s'] + result[4]['-2s'] + result[4]['-3s']
-            if pos_pct > neg_pct:
+            cur_pos_pct = result[4]['1s'] + result[4]['2s'] + result[4]['3s']
+            if cur_pos_pct > self.pos_pct:
                 self.trend = 'U'
             else:
                 self.trend = 'D'
+            print('current positive percentage: '+str(self.pos_pct))
+            print('trend is: '+ str(self.trend))
+            self.pos_pct = cur_pos_pct
             self.grid_trading(ticker,result[0],result[1],percentage,buying_power_percentage,result[2],result[3],period)
             self.seconds = 0
             self.writeValue('./inputs/variable.py',self.last_trade_price)

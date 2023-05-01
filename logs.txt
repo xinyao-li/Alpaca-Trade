@@ -546,3 +546,6 @@ requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetErro
 2023-05-01 00:19:11,735 - INFO - buying power is: 20292.414984033374
 2023-05-01 00:19:11,735 - INFO - last trade price is: 28612.8417
 2023-05-01 00:19:11,735 - INFO - holding amount is: 2.52868482
+2023-05-01 00:26:18,984 - INFO - buying power is: 20292.414984033374
+2023-05-01 00:26:18,984 - INFO - last trade price is: 28612.8417
+2023-05-01 00:26:18,984 - INFO - holding amount is: 2.52868482
