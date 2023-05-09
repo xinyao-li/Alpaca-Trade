@@ -9,7 +9,7 @@ class DistributionTest:
     def normal_distribution_fit(self,ticker,start,end):
         tickers = []
         tickers.append(ticker)
-        data = self.api.get_crypto_bars(tickers, TimeFrame.Hour, start, end).df
+        data = self.api.get_crypto_bars(tickers, '1Min', start, end).df
         high_sum = 0
         low_sum = 0
         count = 0

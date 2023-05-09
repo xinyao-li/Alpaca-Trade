@@ -12,7 +12,7 @@ class CryptoTradeTest:
     def grid_trading(self, ticker, high, low, percentage, buying_power,buying_power_percentage, start,end,high_standard,low_standard):
         tickers = []
         tickers.append(ticker)
-        data = self.api.get_crypto_bars(tickers, TimeFrame.Hour, start, end).df
+        data = self.api.get_crypto_bars(tickers, '1Min', start, end).df
         #print(data)
 
         #Intialize the last trade price as current price
