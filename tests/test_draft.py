@@ -34,7 +34,7 @@ def test():
         extended_hours=True,
         timeframe='1Min').df
         histpd[pd] = hist
-        #print(histpd)
+        print(histpd)
         print(average_entry_price)
 if __name__ == '__main__':
     test()

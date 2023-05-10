@@ -1,324 +1,121 @@
-2023-05-08 09:51:09,633 - INFO - buying power is: 9218.987826522633
-2023-05-08 09:51:09,634 - INFO - last trade price is: 29070.7739946
-2023-05-08 09:51:09,634 - INFO - holding amount is: 2.731829365
-2023-05-08 09:51:10,313 - INFO - Bought 0.032560213590690175 of BTC/USD at price: 28313.65894098
-2023-05-08 09:51:10,536 - INFO - last trade price is: 28313.65894098
-2023-05-08 09:51:58,545 - INFO - Bought 0.026080157602365355 of BTC/USD at price: 28278.933
-2023-05-08 09:51:58,769 - INFO - last trade price is: 28278.933
-2023-05-08 09:54:41,065 - INFO - buying power is: 5900.152269802344
-2023-05-08 09:54:41,068 - INFO - last trade price is: 28278.933
-2023-05-08 09:54:41,068 - INFO - holding amount is: 2.790422821
-2023-05-08 10:21:08,943 - INFO - buying power is: 5900.152269802344
-2023-05-08 10:21:08,945 - INFO - last trade price is: 28278.933
-2023-05-08 10:21:08,945 - INFO - holding amount is: 2.790422821
-2023-05-08 10:24:35,533 - INFO - Bought 0.02088555921578561 of BTC/USD at price: 28249.912817
-2023-05-08 10:24:35,844 - INFO - last trade price is: 28249.912817
-2023-05-08 10:27:31,474 - INFO - buying power is: 4720.292789575584
-2023-05-08 10:27:31,476 - INFO - last trade price is: 28249.912817
-2023-05-08 10:27:31,477 - INFO - holding amount is: 2.811270785
-2023-05-08 10:43:28,289 - INFO - Bought in -2s or lower
-2023-05-08 10:43:28,289 - INFO - last trade price is: 28178.478
-2023-05-08 10:43:32,277 - INFO - buying power is: 3776.234256910667
-2023-05-08 10:43:32,277 - INFO - last trade price is: 28178.478
-2023-05-08 10:43:32,277 - INFO - holding amount is: 2.828008794
-2023-05-08 10:43:46,396 - INFO - buying power is: 3776.234256910667
-2023-05-08 10:43:46,397 - INFO - last trade price is: 28178.478
-2023-05-08 10:43:46,397 - INFO - holding amount is: 2.828008794
-2023-05-08 13:38:19,230 - INFO - Sold double amounts
-2023-05-08 13:38:19,231 - INFO - last trade price is: 28348.02951515
-2023-05-08 14:40:14,756 - INFO - buying power is: 5284.191108659065
-2023-05-08 14:40:14,757 - INFO - last trade price is: 28348.02951515
-2023-05-08 14:40:14,757 - INFO - holding amount is: 2.801366842
-2023-05-08 14:44:49,515 - INFO - Sold double amounts
-2023-05-08 14:44:49,516 - INFO - last trade price is: 28379.0041
-2023-05-08 14:46:32,407 - INFO - buying power is: 7396.167507180246
-2023-05-08 14:46:32,408 - INFO - last trade price is: 28379.0041
-2023-05-08 14:46:32,409 - INFO - holding amount is: 2.764126698
-2023-05-08 14:46:33,122 - INFO - Sold double amounts
-2023-05-08 14:46:33,122 - INFO - last trade price is: 28398.0624036
-2023-05-08 14:48:33,888 - INFO - Sold double amounts
-2023-05-08 14:48:33,889 - INFO - last trade price is: 28485.2747
-2023-05-08 14:52:19,143 - INFO - Bought 0.03646665478470185 of BTC/USD at price: 28383.8
-2023-05-08 14:52:19,342 - INFO - last trade price is: 28383.8
-2023-05-08 14:58:34,714 - ERROR - Buy in -1s Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
-    six.raise_from(e, None)
-  File "<string>", line 3, in raise_from
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
-    httplib_response = conn.getresponse()
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1322, in getresponse
-    response.begin()
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 303, in begin
-    version, status, reason = self._read_status()
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 264, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
-    return self._sock.recv_into(b)
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1241, in recv_into
-    return self.read(nbytes, buffer)
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1099, in read
-    return self._sslobj.read(len, buffer)
-TimeoutError: [Errno 60] Operation timed out
 
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 489, in send
-    resp = conn.urlopen(
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
-    retries = retries.increment(
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 770, in reraise
-    raise value
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
-    httplib_response = self._make_request(
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 451, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 357, in _raise_timeout
-    raise ReadTimeoutError(
-urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 174, in grid_trading
-    self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc', limit_price=ask_price)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 232, in _one_request
-    resp = self._session.request(method, url, **opts)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
-    r = adapter.send(request, **kwargs)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 578, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
-2023-05-08 14:58:34,723 - INFO - last trade price is: 28383.8
-2023-05-08 14:58:36,548 - INFO - Bought in -1s
-2023-05-08 14:58:36,548 - INFO - last trade price is: 28106.4990084
-2023-05-08 14:59:01,473 - INFO - buying power is: 6624.7045492393245
-2023-05-08 14:59:01,475 - INFO - last trade price is: 28106.4990084
-2023-05-08 14:59:01,475 - INFO - holding amount is: 2.777846879
-2023-05-08 14:59:13,278 - INFO - Bought in -2s or lower
-2023-05-08 14:59:13,279 - INFO - last trade price is: 28088.4
-2023-05-08 15:05:19,522 - INFO - buying power is: 5300.040985807199
-2023-05-08 15:05:19,524 - INFO - last trade price is: 28088.4
-2023-05-08 15:05:19,524 - INFO - holding amount is: 2.801389622
-2023-05-08 15:11:38,132 - INFO - buying power is: 5300.040985807199
-2023-05-08 15:11:38,135 - INFO - last trade price is: 28088.4
-2023-05-08 15:11:38,135 - INFO - holding amount is: 2.801389622
-2023-05-08 15:38:27,185 - INFO - Sold 0.01879756198005574 of BTC/USD at price: 28195.3638
-2023-05-08 15:38:27,412 - INFO - last trade price is: 28195.3638
-2023-05-08 15:39:51,478 - INFO - buying power is: 6358.78501972002
-2023-05-08 15:39:51,480 - INFO - last trade price is: 28195.3638
-2023-05-08 15:39:51,480 - INFO - holding amount is: 2.782592061
-2023-05-08 15:46:17,456 - INFO - buying power is: 6358.78501972002
-2023-05-08 15:46:17,458 - INFO - last trade price is: 28195.3638
-2023-05-08 15:46:17,459 - INFO - holding amount is: 2.782592061
-2023-05-08 15:50:28,675 - INFO - Bought 0.02257570170138292 of BTC/USD at price: 28166.5
-2023-05-08 15:50:28,951 - INFO - last trade price is: 28166.5
-2023-05-08 15:52:39,359 - INFO - buying power is: 5087.028055287019
-2023-05-08 15:52:39,360 - INFO - last trade price is: 28166.5
-2023-05-08 15:52:39,360 - INFO - holding amount is: 2.805149701
-2023-05-08 16:27:30,225 - ERROR - Sell Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
-    six.raise_from(e, None)
-  File "<string>", line 3, in raise_from
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
-    httplib_response = conn.getresponse()
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1322, in getresponse
-    response.begin()
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 303, in begin
-    version, status, reason = self._read_status()
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 264, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
-    return self._sock.recv_into(b)
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1241, in recv_into
-    return self.read(nbytes, buffer)
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1099, in read
-    return self._sslobj.read(len, buffer)
-TimeoutError: [Errno 60] Operation timed out
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 489, in send
-    resp = conn.urlopen(
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
-    retries = retries.increment(
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 770, in reraise
-    raise value
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
-    httplib_response = self._make_request(
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 451, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 357, in _raise_timeout
-    raise ReadTimeoutError(
-urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 104, in grid_trading
-    self.api.submit_order(ticker, selling_amount, 'sell', 'limit', time_in_force='gtc', limit_price=bid_price)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 232, in _one_request
-    resp = self._session.request(method, url, **opts)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
-    r = adapter.send(request, **kwargs)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 578, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
-2023-05-08 16:27:30,232 - INFO - last trade price is: 28166.5
-2023-05-08 16:28:29,082 - INFO - Sold 0.018032099701538382 of BTC/USD at price: 28210.9579
-2023-05-08 16:28:29,292 - INFO - last trade price is: 28210.9579
-2023-05-08 16:33:05,137 - INFO - buying power is: 6103.613626762283
-2023-05-08 16:33:05,140 - INFO - last trade price is: 28210.9579
-2023-05-08 16:33:05,140 - INFO - holding amount is: 2.787117602
-2023-05-08 16:39:23,499 - INFO - buying power is: 6103.613626762283
-2023-05-08 16:39:23,501 - INFO - last trade price is: 28210.9579
-2023-05-08 16:39:23,502 - INFO - holding amount is: 2.787117602
-2023-05-08 16:44:10,189 - INFO - Bought 0.021657767259225837 of BTC/USD at price: 28182.1
-2023-05-08 16:44:10,385 - INFO - last trade price is: 28182.1
-2023-05-08 16:45:48,414 - INFO - buying power is: 4882.9635209991875
-2023-05-08 16:45:48,417 - INFO - last trade price is: 28182.1
-2023-05-08 16:45:48,417 - INFO - holding amount is: 2.808736385
-2023-05-08 17:20:19,138 - INFO - Bought 0.01736950125076706 of BTC/USD at price: 28112.284
-2023-05-08 17:20:19,379 - INFO - last trade price is: 28112.284
-2023-05-08 17:39:33,837 - ERROR - Buy in -1s Order submission failed
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
-    six.raise_from(e, None)
-  File "<string>", line 3, in raise_from
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
-    httplib_response = conn.getresponse()
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1322, in getresponse
-    response.begin()
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 303, in begin
-    version, status, reason = self._read_status()
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 264, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
-    return self._sock.recv_into(b)
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1241, in recv_into
-    return self.read(nbytes, buffer)
-  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1099, in read
-    return self._sslobj.read(len, buffer)
-TimeoutError: [Errno 60] Operation timed out
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 489, in send
-    resp = conn.urlopen(
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
-    retries = retries.increment(
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 770, in reraise
-    raise value
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
-    httplib_response = self._make_request(
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 451, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 357, in _raise_timeout
-    raise ReadTimeoutError(
-urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 174, in grid_trading
-    self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc', limit_price=ask_price)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
-    resp = self.post('/orders', params)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
-    return self._request('POST', path, data)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
-    return self._one_request(method, url, opts, retry)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 232, in _one_request
-    resp = self._session.request(method, url, **opts)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
-    r = adapter.send(request, **kwargs)
-  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 578, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
-2023-05-08 17:39:33,843 - INFO - last trade price is: 28112.284
-2023-05-08 17:39:36,113 - INFO - Bought in -1s
-2023-05-08 17:39:36,114 - INFO - last trade price is: 28044.4468
-2023-05-08 17:42:56,880 - INFO - buying power is: 3125.448904393988
-2023-05-08 17:42:56,883 - INFO - last trade price is: 28044.4468
-2023-05-08 17:42:56,883 - INFO - holding amount is: 2.839979685
-2023-05-08 17:49:13,586 - INFO - buying power is: 3125.448904393988
-2023-05-08 17:49:13,588 - INFO - last trade price is: 28044.4468
-2023-05-08 17:49:13,589 - INFO - holding amount is: 2.839979685
-2023-05-08 18:05:36,190 - INFO - Sold 0.011131484298466145 of BTC/USD at price: 28077.557499
-2023-05-08 18:05:36,530 - INFO - last trade price is: 28077.557499
-2023-05-08 18:06:01,595 - INFO - Sold 0.013339592668216306 of BTC/USD at price: 28107.4838959
-2023-05-08 18:06:01,803 - INFO - last trade price is: 28107.4838959
-2023-05-08 18:06:09,331 - INFO - buying power is: 4498.087492062035
-2023-05-08 18:06:09,346 - INFO - last trade price is: 28107.4838959
-2023-05-08 18:06:09,346 - INFO - holding amount is: 2.815508609
-2023-05-08 18:06:28,494 - INFO - Sold 0.01598717458331095 of BTC/USD at price: 28135.6
-2023-05-08 18:06:28,866 - INFO - last trade price is: 28135.6
-2023-05-08 18:09:26,703 - INFO - Bought 0.01600535784076976 of BTC/USD at price: 28103.6359
-2023-05-08 18:09:26,900 - INFO - last trade price is: 28103.6359
-2023-05-08 18:12:27,654 - INFO - buying power is: 4497.367506495802
-2023-05-08 18:12:27,656 - INFO - last trade price is: 28103.6359
-2023-05-08 18:12:27,657 - INFO - holding amount is: 2.815513987
-2023-05-08 18:15:16,082 - INFO - Bought 0.016021819480718878 of BTC/USD at price: 28070.267
-2023-05-08 18:15:16,357 - INFO - last trade price is: 28070.267
-2023-05-08 18:46:27,595 - INFO - Bought in -1s
-2023-05-08 18:46:27,596 - INFO - last trade price is: 28027.98
-2023-05-08 18:46:31,556 - INFO - buying power is: 2878.3152772481767
-2023-05-08 18:46:31,557 - INFO - last trade price is: 28027.98
-2023-05-08 18:46:31,557 - INFO - holding amount is: 2.844349511
-2023-05-08 18:52:49,198 - INFO - buying power is: 2878.3152772481767
-2023-05-08 18:52:49,198 - INFO - last trade price is: 28027.98
-2023-05-08 18:52:49,198 - INFO - holding amount is: 2.844349511
-2023-05-08 18:52:49,742 - INFO - Bought in -1s
-2023-05-08 18:52:49,742 - INFO - last trade price is: 28000.36432707
-2023-05-08 18:59:06,598 - INFO - Sold 0.008214706634682527 of BTC/USD at price: 28030.852
-2023-05-08 18:59:06,928 - INFO - last trade price is: 28030.852
-2023-05-08 18:59:10,732 - INFO - buying power is: 2762.481470893639
-2023-05-08 18:59:10,733 - INFO - last trade price is: 28030.852
-2023-05-08 18:59:10,733 - INFO - holding amount is: 2.836134805
-2023-05-08 19:00:11,378 - INFO - Bought in -1s
-2023-05-08 19:00:11,379 - INFO - last trade price is: 28015.007
-2023-05-08 19:05:27,936 - INFO - buying power is: 2209.9851912435593
-2023-05-08 19:05:27,939 - INFO - last trade price is: 28015.007
-2023-05-08 19:05:27,939 - INFO - holding amount is: 2.856258975
-2023-05-08 19:05:28,598 - INFO - Bought in -1s
-2023-05-08 19:05:28,599 - INFO - last trade price is: 27988.8
-2023-05-08 19:11:46,063 - INFO - buying power is: 1768.1001695544262
-2023-05-08 19:11:46,064 - INFO - last trade price is: 27988.8
-2023-05-08 19:11:46,065 - INFO - holding amount is: 2.864140724
-2023-05-08 19:18:07,091 - INFO - buying power is: 1768.1001695544262
-2023-05-08 19:18:07,093 - INFO - last trade price is: 27988.8
-2023-05-08 19:18:07,093 - INFO - holding amount is: 2.864140724
-2023-05-08 19:18:07,579 - INFO - Bought in -1s
-2023-05-08 19:18:07,579 - INFO - last trade price is: 27929.56376
-2023-05-08 22:21:12,691 - INFO - buying power is: 1414.6575673656746
-2023-05-08 22:21:12,692 - INFO - last trade price is: 27929.56376
-2023-05-08 22:21:12,692 - INFO - holding amount is: 2.870459896
-2023-05-08 22:21:13,472 - INFO - last trade price is: 28169.26153852
+2023-05-10 10:59:09,675 - INFO - buying power is: 542.8051156659415
+2023-05-10 10:59:09,676 - INFO - last trade price is: 27791.065704
+2023-05-10 10:59:09,676 - INFO - holding amount is: 2.878030157
+2023-05-10 11:05:11,565 - INFO - buying power is: 542.8051156659415
+2023-05-10 11:05:11,566 - INFO - last trade price is: 27791.065704
+2023-05-10 11:05:11,566 - INFO - holding amount is: 2.878030157
+2023-05-10 11:05:11,847 - INFO - Bought 0.0019657572821379244 of BTC/USD at price: 27613.0283529
+2023-05-10 11:05:12,054 - INFO - last trade price is: 27613.0283529
+2023-05-10 11:06:29,797 - INFO - Bought 0.0017710146927068183 of BTC/USD at price: 27585.36701157
+2023-05-10 11:06:30,007 - INFO - last trade price is: 27585.36701157
+2023-05-10 11:08:46,504 - INFO - Bought 0.001595863988012836 of BTC/USD at price: 27551.64819446
+2023-05-10 11:08:46,716 - INFO - last trade price is: 27551.64819446
+2023-05-10 11:10:15,444 - INFO - last trade price is: 27590.2
+2023-05-10 11:10:22,732 - INFO - last trade price is: 27623.2303
+2023-05-10 11:11:16,706 - INFO - buying power is: 395.7181756968203
+2023-05-10 11:11:16,707 - INFO - last trade price is: 27623.2303
+2023-05-10 11:11:16,707 - INFO - holding amount is: 2.883356558
+2023-05-10 11:14:16,367 - INFO - Bought 0.0014345354276159143 of BTC/USD at price: 27585.11
+2023-05-10 11:14:16,567 - INFO - last trade price is: 27585.11
+2023-05-10 11:14:51,470 - INFO - Bought 0.0012927179110241319 of BTC/USD at price: 27550.2
+2023-05-10 11:14:51,661 - INFO - last trade price is: 27550.2
+2023-05-10 11:16:46,073 - INFO - Sold 0.0011622270415987846 of BTC/USD at price: 27579.1
+2023-05-10 11:16:46,273 - INFO - last trade price is: 27579.1
+2023-05-10 11:17:19,826 - INFO - buying power is: 352.55493268527033
+2023-05-10 11:17:19,828 - INFO - last trade price is: 27579.1
+2023-05-10 11:17:19,828 - INFO - holding amount is: 2.8849194
+2023-05-10 11:18:23,631 - INFO - last trade price is: 27612.0886
+2023-05-10 11:22:16,659 - INFO - Not enough amount to sold
+2023-05-10 11:22:17,969 - INFO - Not enough amount to sold
+2023-05-10 11:22:19,155 - INFO - Not enough amount to sold
+2023-05-10 11:23:23,782 - INFO - buying power is: 352.55493268527033
+2023-05-10 11:23:23,783 - INFO - last trade price is: 27612.0886
+2023-05-10 11:23:23,783 - INFO - holding amount is: 2.8849194
+2023-05-10 11:23:36,125 - INFO - Sold 0.0012754881335145522 of BTC/USD at price: 27640.785
+2023-05-10 11:23:36,324 - INFO - last trade price is: 27640.785
+2023-05-10 11:25:45,543 - INFO - Bought 0.001277008811926709 of BTC/USD at price: 27607.87
+2023-05-10 11:25:45,734 - INFO - last trade price is: 27607.87
+2023-05-10 11:44:40,618 - INFO - buying power is: 352.5249514103903
+2023-05-10 11:44:40,619 - INFO - last trade price is: 27607.87
+2023-05-10 11:44:40,619 - INFO - holding amount is: 2.884919898
+2023-05-10 11:48:21,676 - INFO - Bought 0.0012781812728348248 of BTC/USD at price: 27580.2
+2023-05-10 11:48:21,874 - INFO - last trade price is: 27580.2
+2023-05-10 12:07:12,135 - INFO - Not enough amount to sold
+2023-05-10 12:12:52,458 - INFO - Not enough amount to sold
+2023-05-10 12:37:08,127 - INFO - buying power is: 317.2725967250143
+2023-05-10 12:37:08,127 - INFO - last trade price is: 27580.2
+2023-05-10 12:37:08,127 - INFO - holding amount is: 2.886195778
+2023-05-10 12:37:34,212 - INFO - buying power is: 317.2725967250143
+2023-05-10 12:37:34,213 - INFO - last trade price is: 27580.2
+2023-05-10 12:37:34,213 - INFO - holding amount is: 2.886195778
+2023-05-10 12:37:34,395 - INFO - Not enough amount to sold
+2023-05-10 12:37:35,585 - INFO - Not enough amount to sold
+2023-05-10 12:37:36,775 - INFO - Not enough amount to sold
+2023-05-10 12:37:37,978 - INFO - Not enough amount to sold
+2023-05-10 12:37:39,166 - INFO - Not enough amount to sold
+2023-05-10 12:37:44,243 - INFO - Not enough amount to sold
+2023-05-10 12:37:45,437 - INFO - Not enough amount to sold
+2023-05-10 12:37:46,636 - INFO - Not enough amount to sold
+2023-05-10 12:37:47,829 - INFO - Not enough amount to sold
+2023-05-10 12:38:15,986 - INFO - Not enough amount to sold
+2023-05-10 12:38:17,180 - INFO - Not enough amount to sold
+2023-05-10 12:38:18,379 - INFO - Not enough amount to sold
+2023-05-10 12:39:30,468 - INFO - Not enough amount to sold
+2023-05-10 12:39:31,658 - INFO - Not enough amount to sold
+2023-05-10 12:39:32,875 - INFO - Not enough amount to sold
+2023-05-10 12:39:34,085 - INFO - Not enough amount to sold
+2023-05-10 12:39:53,585 - INFO - Not enough amount to sold
+2023-05-10 12:39:54,788 - INFO - Not enough amount to sold
+2023-05-10 12:39:55,985 - INFO - Not enough amount to sold
+2023-05-10 12:41:09,957 - INFO - buying power is: 483.8549967250143
+2023-05-10 12:41:09,958 - INFO - last trade price is: 27580.2
+2023-05-10 12:41:09,958 - INFO - holding amount is: 2.880195778
+2023-05-10 12:41:32,370 - INFO - Not enough amount to sold
+2023-05-10 12:41:33,555 - INFO - Not enough amount to sold
+2023-05-10 12:41:34,745 - INFO - Not enough amount to sold
+2023-05-10 12:41:35,933 - INFO - Not enough amount to sold
+2023-05-10 12:42:00,192 - INFO - Not enough amount to sold
+2023-05-10 12:42:01,378 - INFO - Not enough amount to sold
+2023-05-10 12:42:02,601 - INFO - Not enough amount to sold
+2023-05-10 12:42:03,792 - INFO - Not enough amount to sold
+2023-05-10 12:42:04,983 - INFO - Not enough amount to sold
+2023-05-10 12:42:11,382 - INFO - Not enough amount to sold
+2023-05-10 12:42:12,603 - INFO - Not enough amount to sold
+2023-05-10 12:42:13,803 - INFO - Not enough amount to sold
+2023-05-10 12:42:14,984 - INFO - Not enough amount to sold
+2023-05-10 12:42:19,989 - INFO - Not enough amount to sold
+2023-05-10 12:42:21,180 - INFO - Not enough amount to sold
+2023-05-10 12:42:22,369 - INFO - Not enough amount to sold
+2023-05-10 12:42:23,561 - INFO - Not enough amount to sold
+2023-05-10 12:44:02,508 - INFO - buying power is: 483.8549967250143
+2023-05-10 12:44:02,509 - INFO - last trade price is: 27580.2
+2023-05-10 12:44:02,509 - INFO - holding amount is: 2.880195778
+2023-05-10 12:44:55,780 - INFO - Not enough amount to sold
+2023-05-10 12:44:56,976 - INFO - Not enough amount to sold
+2023-05-10 12:44:58,166 - INFO - Not enough amount to sold
+2023-05-10 12:45:04,499 - INFO - Not enough amount to sold
+2023-05-10 12:45:05,685 - INFO - Not enough amount to sold
+2023-05-10 12:45:06,885 - INFO - Not enough amount to sold
+2023-05-10 12:45:08,076 - INFO - Not enough amount to sold
+2023-05-10 12:45:09,268 - INFO - Not enough amount to sold
+2023-05-10 12:45:10,458 - INFO - Not enough amount to sold
+2023-05-10 12:45:11,649 - INFO - Not enough amount to sold
+2023-05-10 12:45:12,849 - INFO - Not enough amount to sold
+2023-05-10 12:45:28,226 - INFO - Not enough amount to sold
+2023-05-10 12:45:29,427 - INFO - Not enough amount to sold
+2023-05-10 12:45:30,617 - INFO - Not enough amount to sold
+2023-05-10 12:50:08,665 - INFO - buying power is: 483.8549967250143
+2023-05-10 12:50:08,666 - INFO - last trade price is: 27580.2
+2023-05-10 12:50:08,666 - INFO - holding amount is: 2.880195778
+2023-05-10 12:54:39,482 - INFO - buying power is: 483.8549967250143
+2023-05-10 12:54:39,485 - INFO - last trade price is: 27580.2
+2023-05-10 12:54:39,486 - INFO - holding amount is: 2.880195778
+2023-05-10 13:01:38,201 - INFO - buying power is: 483.8549967250143
+2023-05-10 13:01:38,203 - INFO - last trade price is: 27580.2
+2023-05-10 13:01:38,203 - INFO - holding amount is: 2.880195778
+2023-05-10 13:02:09,669 - INFO - Sold 0.01742169275992425 of BTC/USD at price: 27773.1333799
+2023-05-10 13:02:09,861 - INFO - last trade price is: 27773.1333799
+2023-05-10 13:03:43,266 - INFO - buying power is: 967.319972344551
+2023-05-10 13:03:43,267 - INFO - last trade price is: 27773.1333799
+2023-05-10 13:03:43,267 - INFO - holding amount is: 2.862774086
