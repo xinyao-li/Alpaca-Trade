@@ -28,12 +28,6 @@ class CryptoTrade:
     seconds = variable.seconds
     last_trade_price = variable.last_trade_price
     holding_amount = None
-    '''
-    #Download the data
-    now = dt.datetime.today()
-    now = now.strftime("%Y-%m-%d")
-    data = api.get_crypto_bars('BTCUSD', tradeapi.rest.TimeFrame.Minute, now, now).df
-    '''
 
     # Function to generate a list of all bought trade you made and sort by buy in price
     def grid_trading(self, ticker, high, low, percentage, buying_power_percentage,bid_standard,ask_standard,period):
@@ -121,7 +115,7 @@ class CryptoTrade:
                 elif bid_price is not None and self.last_trade_price <= high and bid_price > high:
                     selling_amount = None
                     try:
-                        selling_amount = self.buying_power * buying_power_percentage / bid_price * 2
+                        selling_amount = self.buying_power * buying_power_percentage / bid_price
                     except Exception as e:
                         selling_amount = 0
                     # Corner case when sell_amount less than 2e-9
@@ -134,6 +128,8 @@ class CryptoTrade:
                             self.logger1.info('Not enough amount to sold')
 
                     if selling_amount is not None and selling_amount > 0.000000002:
+                        if float(self.api.get_position(ticker_for_holding).avg_entry_price) < bid_price:
+                            selling_amount *= 2
                         try:
                             self.api.submit_order(ticker, selling_amount, 'sell', 'limit', time_in_force='gtc', limit_price=bid_price)
                             self.last_trade_price = bid_price

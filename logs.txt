@@ -240,3 +240,6 @@ requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='paper-api.alpaca.mark
 2023-05-11 23:02:32,598 - INFO - buying power is: 1847.4103227537923
 2023-05-11 23:02:32,598 - INFO - last trade price is: 26952.4
 2023-05-11 23:02:32,599 - INFO - holding amount is: 2.830077821
+2023-05-12 00:14:45,014 - INFO - buying power is: 1847.4103227537923
+2023-05-12 00:14:45,017 - INFO - last trade price is: 26952.4
+2023-05-12 00:14:45,017 - INFO - holding amount is: 2.830077821

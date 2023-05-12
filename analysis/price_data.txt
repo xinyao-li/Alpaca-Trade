@@ -5127,3 +5127,16 @@ ask_price:26362.6
 bid_price:26323
 ask_price:26362.6
 bid_price:26323
+2023-05-12 00:14:44.530963
+ask_price:26391.35361
+bid_price:26367.06101
+ask_price:26391.35361
+bid_price:26367.06101
+ask_price:26391.35361
+bid_price:26367.06101
+ask_price:26393.101
+bid_price:26369.15901525
+ask_price:26393.101
+bid_price:26369.15901525
+ask_price:26393.101
+bid_price:26369.15901525
