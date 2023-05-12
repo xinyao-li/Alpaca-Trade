@@ -94,7 +94,7 @@ class CryptoTrade:
                             selling_amount = self.buying_power * buying_power_percentage / bid_price
                             # corner case when sell_amount less than 2e-9
                             temp = str(selling_amount)
-                            if float(temp[len(temp) - 1]) >= 8:
+                            if temp.__contains__('e') and float(temp[len(temp) - 1]) >= 8:
                                 if self.holding_amount > 0.000000002:
                                     selling_amount = self.buying_power / bid_price
                                 else:
@@ -126,14 +126,14 @@ class CryptoTrade:
                         selling_amount = 0
                     # Corner case when sell_amount less than 2e-9
                     temp = str(selling_amount)
-                    if float(temp[len(temp)-1]) >= 8:
+                    if temp.__contains__('e') and float(temp[len(temp)-1]) >= 8:
                         if self.holding_amount > 0.000000002:
                             selling_amount = self.buying_power / bid_price
                         else:
                             selling_amount = 0
                             self.logger1.info('Not enough amount to sold')
 
-                    if selling_amount is not None and selling_amount > 0.000000002 and bid_price > float(self.api.get_position(ticker_for_holding).avg_entry_price):
+                    if selling_amount is not None and selling_amount > 0.000000002:
                         try:
                             self.api.submit_order(ticker, selling_amount, 'sell', 'limit', time_in_force='gtc', limit_price=bid_price)
                             self.last_trade_price = bid_price
