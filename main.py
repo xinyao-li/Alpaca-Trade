@@ -111,7 +111,7 @@ class CryptoTrade:
 
                         self.logger1.info('last trade price is: ' + str(self.last_trade_price))
 
-                # When bid price in range [high, high + ask_standard], sell half of current holding amount
+                # When bid price in range higher than grid range (higher than 1s), sell!
                 elif bid_price is not None and self.last_trade_price <= high and bid_price > high:
                     selling_amount = None
                     try:
@@ -125,10 +125,10 @@ class CryptoTrade:
                             selling_amount = self.buying_power / bid_price
                         else:
                             selling_amount = 0
-                            self.logger1.info('Not enough amount to sold')
+                            self.logger1.info('Not enough amount to sold out of grid range')
 
                     if selling_amount is not None and selling_amount > 0.000000002:
-                        if float(self.api.get_position(ticker_for_holding).avg_entry_price) < bid_price:
+                        if float(self.api.get_position(ticker_for_holding).avg_entry_price) < bid_price and self.holding_amount >= selling_amount*2:
                             selling_amount *= 2
                         try:
                             self.api.submit_order(ticker, selling_amount, 'sell', 'limit', time_in_force='gtc', limit_price=bid_price)
@@ -136,9 +136,9 @@ class CryptoTrade:
                             self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
                             self.buying_power = float(self.api.get_account().buying_power)
                             self.writeValue('./inputs/variable.py', self.last_trade_price)
-                            self.logger1.info("Sold double amounts")
+                            self.logger1.info("Sold out of -1s")
                         except Exception as e:
-                            self.logger1.exception("Sell Double Order submission failed")
+                            self.logger1.exception("Sell out of -1s Order submission failed")
 
                         self.logger1.info('last trade price is: ' + str(self.last_trade_price))
 
