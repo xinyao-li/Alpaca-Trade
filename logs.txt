@@ -1,38 +1,361 @@
-2023-05-20 20:08:48,314 - INFO - buying power is: 1132.1
-2023-05-20 20:08:48,315 - INFO - last trade price is: 26874.1514
-2023-05-20 20:08:48,315 - INFO - holding amount is: 2.855720762
-2023-05-20 20:08:50,593 - INFO - Sold 0.004169982053065261 of BTC/USD at price: 27148.79789873
-2023-05-20 20:08:50,785 - INFO - last trade price is: 27148.79789873
-2023-05-20 20:14:49,929 - INFO - buying power is: 1245.146881809873
-2023-05-20 20:14:49,932 - INFO - last trade price is: 27148.79789873
-2023-05-20 20:14:49,932 - INFO - holding amount is: 2.85155078
-2023-05-20 20:20:51,125 - INFO - buying power is: 1245.146881809873
-2023-05-20 20:20:51,126 - INFO - last trade price is: 27148.79789873
-2023-05-20 20:20:51,126 - INFO - holding amount is: 2.85155078
-2023-05-20 20:26:51,720 - INFO - buying power is: 1245.146881809873
-2023-05-20 20:26:51,722 - INFO - last trade price is: 27148.79789873
-2023-05-20 20:26:51,722 - INFO - holding amount is: 2.85155078
-2023-05-20 20:32:52,995 - INFO - buying power is: 1245.146881809873
-2023-05-20 20:32:52,997 - INFO - last trade price is: 27148.79789873
-2023-05-20 20:32:52,997 - INFO - holding amount is: 2.85155078
-2023-05-20 20:38:53,934 - INFO - buying power is: 1245.146881809873
-2023-05-20 20:38:53,937 - INFO - last trade price is: 27148.79789873
-2023-05-20 20:38:53,937 - INFO - holding amount is: 2.85155078
-2023-05-20 20:44:55,092 - INFO - buying power is: 1245.146881809873
-2023-05-20 20:44:55,094 - INFO - last trade price is: 27148.79789873
-2023-05-20 20:44:55,095 - INFO - holding amount is: 2.85155078
-2023-05-20 20:50:57,996 - INFO - buying power is: 1245.146881809873
-2023-05-20 20:50:57,997 - INFO - last trade price is: 27148.79789873
-2023-05-20 20:50:57,997 - INFO - holding amount is: 2.85155078
-2023-05-20 20:56:59,752 - INFO - buying power is: 1245.146881809873
-2023-05-20 20:56:59,754 - INFO - last trade price is: 27148.79789873
-2023-05-20 20:56:59,754 - INFO - holding amount is: 2.85155078
-2023-05-20 21:03:02,005 - INFO - buying power is: 1245.146881809873
-2023-05-20 21:03:02,007 - INFO - last trade price is: 27148.79789873
-2023-05-20 21:03:02,007 - INFO - holding amount is: 2.85155078
-2023-05-20 21:09:09,251 - INFO - buying power is: 1245.146881809873
-2023-05-20 21:09:09,253 - INFO - last trade price is: 27148.79789873
-2023-05-20 21:09:09,254 - INFO - holding amount is: 2.85155078
-2023-05-20 21:33:59,553 - INFO - buying power is: 1245.146881809873
-2023-05-20 21:33:59,555 - INFO - last trade price is: 27148.79789873
-2023-05-20 21:33:59,556 - INFO - holding amount is: 2.85155078
+
+2023-05-23 09:56:06,246 - INFO - buying power is: 308353.4
+2023-05-23 09:56:06,248 - INFO - last trade price is: 27382.8
+2023-05-23 09:56:06,249 - INFO - holding amount is: 0.555827866
+2023-05-23 09:56:09,095 - INFO - Bought 1.1308324509693726 of BTC/USD at price: 27267.823782
+2023-05-23 09:56:09,297 - INFO - last trade price is: 27267.823782
+2023-05-23 10:02:06,815 - INFO - buying power is: 308353.4
+2023-05-23 10:02:06,818 - INFO - last trade price is: 27267.823782
+2023-05-23 10:02:06,818 - INFO - holding amount is: 1.685303316
+2023-05-23 10:40:21,219 - INFO - buying power is: 308353.4
+2023-05-23 10:40:21,219 - INFO - last trade price is: 27267.823782
+2023-05-23 10:40:21,219 - INFO - holding amount is: 1.685303316
+2023-05-23 10:45:11,068 - INFO - buying power is: 308353.4
+2023-05-23 10:45:11,069 - INFO - last trade price is: 27267.823782
+2023-05-23 10:45:11,069 - INFO - holding amount is: 1.685303316
+2023-05-23 10:45:48,425 - INFO - Bought 1.1320205314651322 of BTC/USD at price: 27239.2056
+2023-05-23 10:45:48,627 - INFO - last trade price is: 27239.2056
+2023-05-23 10:51:15,155 - INFO - buying power is: 308353.4
+2023-05-23 10:51:15,157 - INFO - last trade price is: 27239.2056
+2023-05-23 10:51:15,158 - INFO - holding amount is: 2.81596542
+2023-05-23 12:17:03,549 - INFO - buying power is: 308353.4
+2023-05-23 12:17:03,550 - INFO - last trade price is: 27239.2056
+2023-05-23 12:17:03,550 - INFO - holding amount is: 2.81596542
+2023-05-23 13:18:18,610 - ERROR - Buy Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1322, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 303, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 264, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+TimeoutError: [Errno 60] Operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 357, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 73, in grid_trading
+    self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 232, in _one_request
+    resp = self._session.request(method, url, **opts)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 578, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+2023-05-23 13:18:18,613 - INFO - last trade price is: 27239.2056
+2023-05-23 13:18:49,375 - ERROR - Buy Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
+    resp.raise_for_status()
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 73, in grid_trading
+    self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
+    raise APIError(error, http_error)
+alpaca_trade_api.rest.APIError: insufficient balance for USD (requested: 30835.339998820492, available: 23491.66)
+2023-05-23 13:18:49,380 - INFO - last trade price is: 27239.2056
+2023-05-23 13:18:50,684 - ERROR - Buy Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
+    resp.raise_for_status()
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 73, in grid_trading
+    self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
+    raise APIError(error, http_error)
+alpaca_trade_api.rest.APIError: insufficient balance for USD (requested: 30835.3399796356551, available: 23491.66)
+2023-05-23 13:18:50,685 - INFO - last trade price is: 27239.2056
+2023-05-23 13:18:51,991 - ERROR - Buy Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
+    resp.raise_for_status()
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 73, in grid_trading
+    self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
+    raise APIError(error, http_error)
+alpaca_trade_api.rest.APIError: insufficient balance for USD (requested: 30835.3399796356551, available: 23491.66)
+2023-05-23 13:18:51,992 - INFO - last trade price is: 27239.2056
+2023-05-23 13:18:53,287 - ERROR - Buy Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
+    resp.raise_for_status()
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 73, in grid_trading
+    self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
+    raise APIError(error, http_error)
+alpaca_trade_api.rest.APIError: insufficient balance for USD (requested: 30835.3399796356551, available: 23491.66)
+2023-05-23 13:18:53,288 - INFO - last trade price is: 27239.2056
+2023-05-23 13:18:54,590 - ERROR - Buy Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
+    resp.raise_for_status()
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 73, in grid_trading
+    self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
+    raise APIError(error, http_error)
+alpaca_trade_api.rest.APIError: insufficient balance for USD (requested: 30835.3399858251153, available: 23491.66)
+2023-05-23 13:18:54,591 - INFO - last trade price is: 27239.2056
+2023-05-23 13:18:55,891 - ERROR - Buy Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
+    resp.raise_for_status()
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 73, in grid_trading
+    self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
+    raise APIError(error, http_error)
+alpaca_trade_api.rest.APIError: insufficient balance for USD (requested: 30835.3399858251153, available: 23491.66)
+2023-05-23 13:18:55,893 - INFO - last trade price is: 27239.2056
+2023-05-23 13:18:57,192 - ERROR - Buy Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
+    resp.raise_for_status()
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 73, in grid_trading
+    self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
+    raise APIError(error, http_error)
+alpaca_trade_api.rest.APIError: insufficient balance for USD (requested: 30835.3399858251153, available: 23491.66)
+2023-05-23 13:18:57,194 - INFO - last trade price is: 27239.2056
+2023-05-23 13:18:58,482 - ERROR - Buy Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 234, in _one_request
+    resp.raise_for_status()
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://paper-api.alpaca.markets/v2/orders
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 73, in grid_trading
+    self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 242, in _one_request
+    raise APIError(error, http_error)
+alpaca_trade_api.rest.APIError: insufficient balance for USD (requested: 30835.3399858251153, available: 23491.66)
+2023-05-23 13:18:58,483 - INFO - last trade price is: 27239.2056
+2023-05-23 13:51:58,551 - ERROR - Buy Order submission failed
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 449, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 3, in raise_from
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 444, in _make_request
+    httplib_response = conn.getresponse()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 1322, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 303, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/http/client.py", line 264, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Library/Frameworks/Python.framework/Versions/3.8/lib/python3.8/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+TimeoutError: [Errno 60] Operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/util/retry.py", line 550, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/packages/six.py", line 770, in reraise
+    raise value
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 451, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 357, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/main.py", line 73, in grid_trading
+    self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 429, in submit_order
+    resp = self.post('/orders', params)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 253, in post
+    return self._request('POST', path, data)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 213, in _request
+    return self._one_request(method, url, opts, retry)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/alpaca_trade_api/rest.py", line 232, in _one_request
+    resp = self._session.request(method, url, **opts)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/xinyaoli/PycharmProjects/Alpaca-Test/venv/lib/python3.8/site-packages/requests/adapters.py", line 578, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='paper-api.alpaca.markets', port=443): Read timed out. (read timeout=None)
+2023-05-23 13:51:58,557 - INFO - last trade price is: 27239.2056
+2023-05-23 14:35:44,599 - INFO - buying power is: 308353.4
+2023-05-23 14:35:44,602 - INFO - last trade price is: 27239.2056
+2023-05-23 14:35:44,602 - INFO - holding amount is: 2.81596542
+2023-05-23 14:41:45,154 - INFO - buying power is: 308353.4
+2023-05-23 14:41:45,157 - INFO - last trade price is: 27239.2056
+2023-05-23 14:41:45,157 - INFO - holding amount is: 2.81596542
+2023-05-23 14:47:46,061 - INFO - buying power is: 308353.4
+2023-05-23 14:47:46,063 - INFO - last trade price is: 27239.2056
+2023-05-23 14:47:46,063 - INFO - holding amount is: 2.81596542
+2023-05-23 14:53:46,587 - INFO - buying power is: 308353.4
+2023-05-23 14:53:46,590 - INFO - last trade price is: 27239.2056
+2023-05-23 14:53:46,590 - INFO - holding amount is: 2.81596542
+2023-05-23 14:59:48,813 - INFO - buying power is: 308353.4
+2023-05-23 14:59:48,815 - INFO - last trade price is: 27239.2056
+2023-05-23 14:59:48,815 - INFO - holding amount is: 2.81596542
+2023-05-23 15:35:35,569 - INFO - buying power is: 308353.4
+2023-05-23 15:35:35,572 - INFO - last trade price is: 27239.2056
+2023-05-23 15:35:35,572 - INFO - holding amount is: 2.81596542
+2023-05-23 15:41:36,900 - INFO - buying power is: 308353.4
+2023-05-23 15:41:36,902 - INFO - last trade price is: 27239.2056
+2023-05-23 15:41:36,903 - INFO - holding amount is: 2.81596542
+2023-05-23 16:25:43,111 - INFO - buying power is: 308353.4
+2023-05-23 16:25:43,114 - INFO - last trade price is: 27239.2056
+2023-05-23 16:25:43,114 - INFO - holding amount is: 2.81596542
+2023-05-23 16:27:34,795 - INFO - Sold out of -1s
+2023-05-23 16:27:34,796 - INFO - last trade price is: 27256.10390924
+2023-05-23 16:31:44,345 - INFO - buying power is: 308353.4
+2023-05-23 16:31:44,348 - INFO - last trade price is: 27256.10390924
+2023-05-23 16:31:44,348 - INFO - holding amount is: 1.684646722
+2023-05-23 17:28:05,529 - INFO - buying power is: 308353.4
+2023-05-23 17:28:05,531 - INFO - last trade price is: 27256.10390924
+2023-05-23 17:28:05,531 - INFO - holding amount is: 1.684646722

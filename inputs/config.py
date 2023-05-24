@@ -1,5 +1,5 @@
-API_KEY = "PKEJTPHCJUHAKITGBD9F"
-SECRET_KEY = "s1H1op3poW9KfuLhyewuQg0Drn8xq8nVxpluNbjY"
+API_KEY = "PK8JWI1CJXFDZU8WGBDU"
+SECRET_KEY = "5wKWPVLu9bxm8MMcDHvLSP8lQ9a5izFgbYQspSM0"
 BASE_URL = "https://paper-api.alpaca.markets"
 
 

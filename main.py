@@ -128,8 +128,6 @@ class CryptoTrade:
                             self.logger1.info('Not enough amount to sold out of grid range')
 
                     if selling_amount is not None and selling_amount > 0.000000002:
-                        if float(self.api.get_position(ticker_for_holding).avg_entry_price) < bid_price and self.holding_amount >= selling_amount*2:
-                            selling_amount *= 2
                         try:
                             self.api.submit_order(ticker, selling_amount, 'sell', 'limit', time_in_force='gtc', limit_price=bid_price)
                             self.last_trade_price = bid_price
