@@ -30,6 +30,8 @@ class CryptoTrade:
     seconds = variable.seconds
     last_trade_price = variable.last_trade_price
     holding_amount = None
+    trade_balance = variable.trade_balance
+    max_buy_count = trade_balance + 1
 
     # Function to generate a list of all bought trade you made and sort by buy in price
     def grid_trading(self, ticker, high, low, percentage, buying_power_percentage,period,threshold):
@@ -69,13 +71,15 @@ class CryptoTrade:
                 if bid_price is not None and ask_price is not None and ask_price <= high and bid_price >= low:
                     if ask_price <= self.last_trade_price*(1 - percentage):
                         try:
-                            buying_amount = self.buying_power*buying_power_percentage/ask_price
+                            buying_amount = self.buying_power * buying_power_percentage * self.trade_balance/ask_price
                             self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
                             self.logger1.info("Bought " + str(buying_amount) + " of "+str(ticker)+" at price: "+str(ask_price))
 
                             #Update the last_trade_price and holding_amount
                             self.last_trade_price = ask_price
                             self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
+                            self.trade_balance += 1
+                            self.max_buy_count = max(self.trade_balance + 1, self.max_buy_count)
                             self.write_value('./inputs/variable.py',self.last_trade_price)
                             self.buying_power = float(self.api.get_account().cash)
                         except Exception as e:
@@ -85,7 +89,7 @@ class CryptoTrade:
 
                     elif bid_price >= self.last_trade_price*(1 + percentage):
                         try:
-                            selling_amount = self.buying_power * buying_power_percentage / bid_price
+                            selling_amount = self.buying_power * buying_power_percentage * (self.max_buy_count - self.trade_balance)/ bid_price
                             # corner case when sell_amount less than 2e-9
                             temp = str(selling_amount)
                             if temp.__contains__('e') and float(temp[len(temp) - 1]) >= 8:
@@ -104,8 +108,14 @@ class CryptoTrade:
 
                             # Update the last_trade_price and holding_amount
                             self.last_trade_price = bid_price
+                            self.trade_balance -= 1
+                            if self.trade_balance <= 1:
+                                self.trade_balance = 1
+                                self.max_buy_count = 2
+
                             self.write_value('./inputs/variable.py', self.last_trade_price)
                             self.buying_power = float(self.api.get_account().cash)
+
                         except Exception as e:
                             self.logger1.exception("Sell Order submission failed")
 
@@ -140,6 +150,7 @@ class CryptoTrade:
         with open(doc, 'w') as f:
             f.write(f'last_trade_price={last_trade_price}\n')
             f.write(f'seconds={self.seconds}\n')
+            f.write(f'trade_balance={self.trade_balance}\n')
 
     def refresh_data(self):
         sys.exit()
