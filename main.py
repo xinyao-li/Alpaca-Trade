@@ -6,6 +6,8 @@ from analysis import normal_distribution
 import logging
 import datetime
 import time
+import subprocess
+import sys
 
 class CryptoTrade:
     # create a logger for record trading history
@@ -30,7 +32,7 @@ class CryptoTrade:
     holding_amount = None
 
     # Function to generate a list of all bought trade you made and sort by buy in price
-    def grid_trading(self, ticker, high, low, percentage, buying_power_percentage,bid_standard,ask_standard,period):
+    def grid_trading(self, ticker, high, low, percentage, buying_power_percentage,period,threshold):
         # Get the buying power from account
         self.buying_power = float(self.api.get_account().cash)
         ticker_for_holding = ticker.replace('/','')
@@ -55,8 +57,6 @@ class CryptoTrade:
                 try:
                     bid_price = self.api.get_latest_crypto_quotes(list, "us")[ticker].bp
                     ask_price = self.api.get_latest_crypto_quotes(list, "us")[ticker].ap
-                    #print("bid price is: " + str(bid_price))
-                    #print("ask price is: "+str(ask_price))
                     self.logger2.info('ask_price:' + str(ask_price))
                     self.logger2.info('bid_price:' + str(bid_price))
 
@@ -76,7 +76,7 @@ class CryptoTrade:
                             #Update the last_trade_price and holding_amount
                             self.last_trade_price = ask_price
                             self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
-                            self.writeValue('./inputs/variable.py',self.last_trade_price)
+                            self.write_value('./inputs/variable.py',self.last_trade_price)
                             self.buying_power = float(self.api.get_account().cash)
                         except Exception as e:
                             self.logger1.exception("Buy Order submission failed")
@@ -104,7 +104,7 @@ class CryptoTrade:
 
                             # Update the last_trade_price and holding_amount
                             self.last_trade_price = bid_price
-                            self.writeValue('./inputs/variable.py', self.last_trade_price)
+                            self.write_value('./inputs/variable.py', self.last_trade_price)
                             self.buying_power = float(self.api.get_account().cash)
                         except Exception as e:
                             self.logger1.exception("Sell Order submission failed")
@@ -112,61 +112,45 @@ class CryptoTrade:
                         self.logger1.info('last trade price is: ' + str(self.last_trade_price))
 
                 # When bid price in range higher than grid range (higher than 1s), sell!
-                elif bid_price is not None and self.last_trade_price <= high and bid_price > high:
-                    selling_amount = None
-                    try:
-                        selling_amount = self.buying_power * buying_power_percentage / bid_price
-                    except Exception as e:
-                        selling_amount = 0
-                    # Corner case when sell_amount less than 2e-9
-                    temp = str(selling_amount)
-                    if temp.__contains__('e') and float(temp[len(temp)-1]) >= 8:
-                        if self.holding_amount > 0.000000002:
-                            selling_amount = self.buying_power / bid_price
-                        else:
-                            selling_amount = 0
-                            self.logger1.info('Not enough amount to sold out of grid range')
-
-                    if selling_amount is not None and selling_amount > 0.000000002:
-                        try:
-                            self.api.submit_order(ticker, selling_amount, 'sell', 'limit', time_in_force='gtc', limit_price=bid_price)
-                            self.last_trade_price = bid_price
-                            self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
-                            self.buying_power = float(self.api.get_account().cash)
-                            self.writeValue('./inputs/variable.py', self.last_trade_price)
-                            self.logger1.info("Sold out of -1s")
-                        except Exception as e:
-                            self.logger1.exception("Sell out of -1s Order submission failed")
-
-                        self.logger1.info('last trade price is: ' + str(self.last_trade_price))
+                if bid_price > self.last_trade_price * (1 + threshold) or ask_price < self.last_trade_price * (1 - threshold):
+                    self.logger1.info('Facing a big gap')
+                    self.refresh_data()
 
                 time.sleep(1)
                 self.seconds += 1
-                self.writeValue('./inputs/variable.py',self.last_trade_price)
+                self.write_value('./inputs/variable.py',self.last_trade_price)
 
-    def dynamic_trade(self, ticker, percentage, buying_power_percentage, period, should_stop):
+    def dynamic_trade(self, ticker, percentage, buying_power_percentage, period,threshold,should_stop):
         while not should_stop.is_set():
             self.logger2.info(datetime.datetime.now())
             distribution = normal_distribution.Distribution()
             result = distribution.distribution_cal('./analysis/price_data.txt')
-            self.grid_trading(ticker,result[0],result[1],percentage,buying_power_percentage,result[2],result[3],period)
+            self.grid_trading(ticker,result[0],result[1],percentage,buying_power_percentage,period,threshold)
             self.seconds = 0
-            self.writeValue('./inputs/variable.py',self.last_trade_price)
+            self.write_value('./inputs/variable.py',self.last_trade_price)
 
-    def run_trade(self, ticker, percentage, buying_power_percentage,period):
+    def run_trade(self, ticker, percentage, buying_power_percentage,period,threshold):
         #Create a new thread to execute grid_trading
         should_stop = threading.Event()
-        thread = threading.Thread(target=self.dynamic_trade(ticker, percentage, buying_power_percentage, period, should_stop))
+        thread = threading.Thread(target=self.dynamic_trade(ticker, percentage, buying_power_percentage, period, threshold, should_stop))
         thread.start()
         thread.join()
 
-    def writeValue(self,doc,last_trade_price):
+    def write_value(self,doc,last_trade_price):
         with open(doc, 'w') as f:
             f.write(f'last_trade_price={last_trade_price}\n')
             f.write(f'seconds={self.seconds}\n')
+
+    def refresh_data(self):
+        sys.exit()
+        subprocess.run(["rm", "./analysis/price_data.txt"])
+        collect_data_process = subprocess.Popen(["python3", "./analysis/collect_data.py"])
+        time.sleep(parameter.period)
+        collect_data_process.terminate()
+        subprocess.run(["python3", "main.py"])
 
 
 if __name__ == '__main__':
     crypt_trade = CryptoTrade()
     print("grid trading start")
-    crypt_trade.run_trade(parameter.ticker,parameter.percentage,parameter.buying_power_percentage,parameter.period)
+    crypt_trade.run_trade(parameter.ticker,parameter.percentage,parameter.buying_power_percentage,parameter.period,parameter.threshold)
