@@ -32,7 +32,7 @@ class CryptoTrade:
     # Function to generate a list of all bought trade you made and sort by buy in price
     def grid_trading(self, ticker, high, low, percentage, buying_power_percentage,bid_standard,ask_standard,period):
         # Get the buying power from account
-        self.buying_power = float(self.api.get_account().buying_power)
+        self.buying_power = float(self.api.get_account().cash)
         ticker_for_holding = ticker.replace('/','')
         try:
             self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
@@ -77,7 +77,7 @@ class CryptoTrade:
                             self.last_trade_price = ask_price
                             self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
                             self.writeValue('./inputs/variable.py',self.last_trade_price)
-                            self.buying_power = float(self.api.get_account().buying_power)
+                            self.buying_power = float(self.api.get_account().cash)
                         except Exception as e:
                             self.logger1.exception("Buy Order submission failed")
 
@@ -105,7 +105,7 @@ class CryptoTrade:
                             # Update the last_trade_price and holding_amount
                             self.last_trade_price = bid_price
                             self.writeValue('./inputs/variable.py', self.last_trade_price)
-                            self.buying_power = float(self.api.get_account().buying_power)
+                            self.buying_power = float(self.api.get_account().cash)
                         except Exception as e:
                             self.logger1.exception("Sell Order submission failed")
 
@@ -132,7 +132,7 @@ class CryptoTrade:
                             self.api.submit_order(ticker, selling_amount, 'sell', 'limit', time_in_force='gtc', limit_price=bid_price)
                             self.last_trade_price = bid_price
                             self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
-                            self.buying_power = float(self.api.get_account().buying_power)
+                            self.buying_power = float(self.api.get_account().cash)
                             self.writeValue('./inputs/variable.py', self.last_trade_price)
                             self.logger1.info("Sold out of -1s")
                         except Exception as e:

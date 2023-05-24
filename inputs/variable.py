@@ -1,2 +1,2 @@
-last_trade_price=27256.10390924
-seconds=52
+last_trade_price=26792.1673
+seconds=4
