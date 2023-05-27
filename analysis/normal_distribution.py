@@ -120,13 +120,13 @@ class Distribution:
         print('ask mean: ' + str(ask_price_mean))
         print('bid standard: '+str(bid_standard))
         print('ask standard: ' + str(ask_standard))
-        print('bid - 1s: ' + str(bid_price_mean - bid_standard))
-        print('ask - 1s: ' + str(ask_price_mean - ask_standard))
-        print('bid + 1s: ' + str(bid_price_mean + bid_standard))
-        print('ask + 1s: ' + str(ask_price_mean + ask_standard))
+        print('bid - 2s: ' + str(bid_price_mean - 2 * bid_standard))
+        print('ask - 2s: ' + str(ask_price_mean - 2 * ask_standard))
+        print('bid + 2s: ' + str(bid_price_mean + 2 * bid_standard))
+        print('ask + 2s: ' + str(ask_price_mean + 2 * ask_standard))
 
-        high_price = ask_price_mean + ask_standard
-        low_price = bid_price_mean - bid_standard
+        high_price = ask_price_mean + 2 * ask_standard
+        low_price = bid_price_mean - 2 * bid_standard
         return high_price, low_price, bid_standard, ask_standard, map_ask
 
 if __name__ == '__main__':

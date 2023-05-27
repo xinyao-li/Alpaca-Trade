@@ -1,5 +1,5 @@
 ticker = 'BTC/USD'
-percentage = 0.0003
-buying_power_percentage = 0.1
+percentage = 0.002
+buying_power_percentage = 0.03
 period = 301
 threshold = 0.005

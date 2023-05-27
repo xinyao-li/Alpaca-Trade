@@ -30,8 +30,9 @@ class CryptoTrade:
     seconds = variable.seconds
     last_trade_price = variable.last_trade_price
     holding_amount = None
-    trade_balance = variable.trade_balance
-    max_buy_count = trade_balance + 1
+    buy_balance = variable.buy_balance
+    sell_balance = variable.sell_balance
+
 
     # Function to generate a list of all bought trade you made and sort by buy in price
     def grid_trading(self, ticker, high, low, percentage, buying_power_percentage,period,threshold):
@@ -71,15 +72,16 @@ class CryptoTrade:
                 if bid_price is not None and ask_price is not None and ask_price <= high and bid_price >= low:
                     if ask_price <= self.last_trade_price*(1 - percentage):
                         try:
-                            buying_amount = self.buying_power * buying_power_percentage * self.trade_balance/ask_price
+                            buying_amount = self.buying_power * buying_power_percentage * self.buy_balance/ask_price
                             self.api.submit_order(ticker, buying_amount, 'buy', 'limit', time_in_force='gtc',limit_price=ask_price)
                             self.logger1.info("Bought " + str(buying_amount) + " of "+str(ticker)+" at price: "+str(ask_price))
 
                             #Update the last_trade_price and holding_amount
                             self.last_trade_price = ask_price
                             self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
-                            self.trade_balance += 1
-                            self.max_buy_count = max(self.trade_balance + 1, self.max_buy_count)
+                            self.buy_balance += 1
+                            if self.sell_balance > 1:
+                                self.sell_balance -= 1
                             self.write_value('./inputs/variable.py',self.last_trade_price)
                             self.buying_power = float(self.api.get_account().cash)
                         except Exception as e:
@@ -89,7 +91,7 @@ class CryptoTrade:
 
                     elif bid_price >= self.last_trade_price*(1 + percentage):
                         try:
-                            selling_amount = self.buying_power * buying_power_percentage * (self.max_buy_count - self.trade_balance)/ bid_price
+                            selling_amount = self.buying_power * buying_power_percentage * self.sell_balance / bid_price
                             # corner case when sell_amount less than 2e-9
                             temp = str(selling_amount)
                             if temp.__contains__('e') and float(temp[len(temp) - 1]) >= 8:
@@ -108,10 +110,9 @@ class CryptoTrade:
 
                             # Update the last_trade_price and holding_amount
                             self.last_trade_price = bid_price
-                            self.trade_balance -= 1
-                            if self.trade_balance <= 1:
-                                self.trade_balance = 1
-                                self.max_buy_count = 2
+                            self.sell_balance += 1
+                            if self.buy_balance > 1:
+                                self.buy_balance -= 1
 
                             self.write_value('./inputs/variable.py', self.last_trade_price)
                             self.buying_power = float(self.api.get_account().cash)
@@ -121,8 +122,8 @@ class CryptoTrade:
 
                         self.logger1.info('last trade price is: ' + str(self.last_trade_price))
 
-                # When bid price in range higher than grid range (higher than 1s), sell!
-                if bid_price > self.last_trade_price * (1 + threshold) or ask_price < self.last_trade_price * (1 - threshold):
+                # When the price is facing a big gap, terminate the program and re-collect the data
+                if low > self.last_trade_price * (1 + threshold) or high < self.last_trade_price * (1 - threshold):
                     self.logger1.info('Facing a big gap')
                     self.refresh_data()
 
@@ -130,14 +131,14 @@ class CryptoTrade:
                 self.seconds += 1
                 self.write_value('./inputs/variable.py',self.last_trade_price)
 
-    def dynamic_trade(self, ticker, percentage, buying_power_percentage, period,threshold,should_stop):
+    def dynamic_trade(self, ticker, percentage, buying_power_percentage, period, threshold, should_stop):
         while not should_stop.is_set():
             self.logger2.info(datetime.datetime.now())
             distribution = normal_distribution.Distribution()
             result = distribution.distribution_cal('./analysis/price_data.txt')
-            self.grid_trading(ticker,result[0],result[1],percentage,buying_power_percentage,period,threshold)
+            self.grid_trading(ticker, result[0], result[1], percentage, buying_power_percentage, period, threshold)
             self.seconds = 0
-            self.write_value('./inputs/variable.py',self.last_trade_price)
+            self.write_value('./inputs/variable.py', self.last_trade_price)
 
     def run_trade(self, ticker, percentage, buying_power_percentage,period,threshold):
         #Create a new thread to execute grid_trading
@@ -150,7 +151,8 @@ class CryptoTrade:
         with open(doc, 'w') as f:
             f.write(f'last_trade_price={last_trade_price}\n')
             f.write(f'seconds={self.seconds}\n')
-            f.write(f'trade_balance={self.trade_balance}\n')
+            f.write(f'buy_balance={self.buy_balance}\n')
+            f.write(f'sell_balance={self.sell_balance}\n')
 
     def refresh_data(self):
         sys.exit()

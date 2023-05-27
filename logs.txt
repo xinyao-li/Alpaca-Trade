@@ -1,85 +1,25 @@
-
-2023-05-24 00:58:04,780 - INFO - buying power is: 16584.421536344908
-2023-05-24 00:58:04,782 - INFO - last trade price is: 26762.39489
-2023-05-24 00:58:04,782 - INFO - holding amount is: 3.069990925
-2023-05-24 00:58:19,583 - INFO - buying power is: 16584.421536344908
-2023-05-24 00:58:19,584 - INFO - last trade price is: 26762.39489
-2023-05-24 00:58:19,584 - INFO - holding amount is: 3.069990925
-2023-05-24 00:58:30,247 - INFO - buying power is: 16584.421536344908
-2023-05-24 00:58:30,247 - INFO - last trade price is: 26762.39489
-2023-05-24 00:58:30,248 - INFO - holding amount is: 3.069990925
-2023-05-24 01:07:01,305 - INFO - buying power is: 16584.421536344908
-2023-05-24 01:07:01,308 - INFO - last trade price is: 26762.39489
-2023-05-24 01:07:01,308 - INFO - holding amount is: 3.069990925
-2023-05-24 01:07:27,703 - INFO - buying power is: 16584.421536344908
-2023-05-24 01:07:27,704 - INFO - last trade price is: 26762.39489
-2023-05-24 01:07:27,704 - INFO - holding amount is: 3.069990925
-2023-05-24 01:07:33,401 - INFO - buying power is: 16584.421536344908
-2023-05-24 01:07:33,402 - INFO - last trade price is: 26762.39489
-2023-05-24 01:07:33,402 - INFO - holding amount is: 3.069990925
-2023-05-24 01:09:59,338 - INFO - buying power is: 16584.421536344908
-2023-05-24 01:09:59,339 - INFO - last trade price is: 26762.39489
-2023-05-24 01:09:59,340 - INFO - holding amount is: 3.069990925
-2023-05-24 01:16:04,399 - INFO - buying power is: 16584.421536344908
-2023-05-24 01:16:04,401 - INFO - last trade price is: 26762.39489
-2023-05-24 01:16:04,402 - INFO - holding amount is: 3.069990925
-2023-05-24 01:16:24,211 - INFO - buying power is: 16584.421536344908
-2023-05-24 01:16:24,212 - INFO - last trade price is: 26762.39489
-2023-05-24 01:16:24,212 - INFO - holding amount is: 3.069990925
-2023-05-24 01:16:42,758 - INFO - buying power is: 16584.421536344908
-2023-05-24 01:16:42,758 - INFO - last trade price is: 26762.39489
-2023-05-24 01:16:42,759 - INFO - holding amount is: 3.069990925
-2023-05-24 01:23:20,190 - INFO - Sold out of -1s
-2023-05-24 01:23:20,192 - INFO - last trade price is: 26787.027943
-2023-05-24 01:23:21,173 - INFO - Sold out of -1s
-2023-05-24 01:23:21,174 - INFO - last trade price is: 26787.027943
-2023-05-24 01:23:23,423 - INFO - Sold out of -1s
-2023-05-24 01:23:23,424 - INFO - last trade price is: 26787.027943
-2023-05-24 01:25:09,679 - INFO - buying power is: 21673.46563354797
-2023-05-24 01:25:09,680 - INFO - last trade price is: 26787.027943
-2023-05-24 01:25:09,680 - INFO - holding amount is: 2.884254514
-2023-05-24 01:25:10,659 - INFO - buying power is: 21673.46563354797
-2023-05-24 01:25:10,660 - INFO - last trade price is: 26787.027943
-2023-05-24 01:25:10,660 - INFO - holding amount is: 2.884254514
-2023-05-24 01:25:54,323 - INFO - buying power is: 21673.46563354797
-2023-05-24 01:25:54,324 - INFO - last trade price is: 26787.027943
-2023-05-24 01:25:54,324 - INFO - holding amount is: 2.884254514
-2023-05-24 01:33:54,768 - INFO - buying power is: 21673.46563354797
-2023-05-24 01:33:54,771 - INFO - last trade price is: 26787.027943
-2023-05-24 01:33:54,771 - INFO - holding amount is: 2.884254514
-2023-05-24 01:34:15,460 - INFO - buying power is: 21673.46563354797
-2023-05-24 01:34:15,461 - INFO - last trade price is: 26787.027943
-2023-05-24 01:34:15,462 - INFO - holding amount is: 2.884254514
-2023-05-24 01:35:02,847 - INFO - buying power is: 21673.46563354797
-2023-05-24 01:35:02,848 - INFO - last trade price is: 26787.027943
-2023-05-24 01:35:02,848 - INFO - holding amount is: 2.884254514
-2023-05-24 01:42:49,947 - INFO - buying power is: 21673.46563354797
-2023-05-24 01:42:49,950 - INFO - last trade price is: 26787.027943
-2023-05-24 01:42:49,950 - INFO - holding amount is: 2.884254514
-2023-05-24 01:43:08,086 - INFO - buying power is: 21673.46563354797
-2023-05-24 01:43:08,087 - INFO - last trade price is: 26787.027943
-2023-05-24 01:43:08,087 - INFO - holding amount is: 2.884254514
-2023-05-24 01:44:39,536 - INFO - buying power is: 21673.46563354797
-2023-05-24 01:44:39,538 - INFO - last trade price is: 26787.027943
-2023-05-24 01:44:39,538 - INFO - holding amount is: 2.884254514
-2023-05-24 01:51:20,454 - INFO - buying power is: 21673.46563354797
-2023-05-24 01:51:20,456 - INFO - last trade price is: 26787.027943
-2023-05-24 01:51:20,456 - INFO - holding amount is: 2.884254514
-2023-05-24 01:52:16,529 - INFO - buying power is: 21673.46563354797
-2023-05-24 01:52:16,531 - INFO - last trade price is: 26787.027943
-2023-05-24 01:52:16,531 - INFO - holding amount is: 2.884254514
-2023-05-24 01:53:51,465 - INFO - buying power is: 21673.46563354797
-2023-05-24 01:53:51,467 - INFO - last trade price is: 26787.027943
-2023-05-24 01:53:51,468 - INFO - holding amount is: 2.884254514
-2023-05-24 01:59:50,627 - INFO - buying power is: 21673.46563354797
-2023-05-24 01:59:50,629 - INFO - last trade price is: 26787.027943
-2023-05-24 01:59:50,630 - INFO - holding amount is: 2.884254514
-2023-05-24 02:01:27,434 - INFO - buying power is: 21673.46563354797
-2023-05-24 02:01:27,436 - INFO - last trade price is: 26787.027943
-2023-05-24 02:01:27,436 - INFO - holding amount is: 2.884254514
-2023-05-24 02:03:08,257 - INFO - buying power is: 21673.46563354797
-2023-05-24 02:03:08,257 - INFO - last trade price is: 26787.027943
-2023-05-24 02:03:08,258 - INFO - holding amount is: 2.884254514
-2023-05-24 03:04:52,501 - INFO - buying power is: 21673.46563354797
-2023-05-24 03:04:52,503 - INFO - last trade price is: 26787.027943
-2023-05-24 03:04:52,503 - INFO - holding amount is: 2.884254514
+2023-05-26 10:05:05,517 - INFO - buying power is: 37338.26830363491
+2023-05-26 10:05:05,519 - INFO - last trade price is: 26493.694
+2023-05-26 10:05:05,519 - INFO - holding amount is: 2.292754624
+2023-05-26 10:05:06,037 - INFO - Sold 0.167119210299037 of BTC/USD at price: 26810.75496
+2023-05-26 10:05:06,240 - INFO - last trade price is: 26810.75496
+2023-05-26 10:07:42,449 - INFO - buying power is: 41809.16674725738
+2023-05-26 10:07:42,452 - INFO - last trade price is: 26810.75496
+2023-05-26 10:07:42,452 - INFO - holding amount is: 2.125635414
+2023-05-26 10:13:43,133 - INFO - buying power is: 41809.16674725738
+2023-05-26 10:13:43,136 - INFO - last trade price is: 26810.75496
+2023-05-26 10:13:43,136 - INFO - holding amount is: 2.125635414
+2023-05-26 10:19:44,161 - INFO - buying power is: 41809.16674725738
+2023-05-26 10:19:44,163 - INFO - last trade price is: 26810.75496
+2023-05-26 10:19:44,163 - INFO - holding amount is: 2.125635414
+2023-05-26 10:56:56,130 - INFO - buying power is: 41809.16674725738
+2023-05-26 10:56:56,132 - INFO - last trade price is: 26810.75496
+2023-05-26 10:56:56,133 - INFO - holding amount is: 2.125635414
+2023-05-26 13:02:10,619 - INFO - buying power is: 41809.16674725738
+2023-05-26 13:02:10,622 - INFO - last trade price is: 26810.75496
+2023-05-26 13:02:10,622 - INFO - holding amount is: 2.125635414
+2023-05-26 13:21:48,934 - INFO - buying power is: 41809.16674725738
+2023-05-26 13:21:48,937 - INFO - last trade price is: 26810.75496
+2023-05-26 13:21:48,937 - INFO - holding amount is: 2.125635414
+2023-05-26 16:00:25,264 - INFO - Bought 0.04688690983599581 of BTC/USD at price: 26751.0699
+2023-05-26 16:00:25,465 - INFO - last trade price is: 26751.0699
