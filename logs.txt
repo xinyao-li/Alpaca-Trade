@@ -1,25 +1,27 @@
-2023-05-26 10:05:05,517 - INFO - buying power is: 37338.26830363491
-2023-05-26 10:05:05,519 - INFO - last trade price is: 26493.694
-2023-05-26 10:05:05,519 - INFO - holding amount is: 2.292754624
-2023-05-26 10:05:06,037 - INFO - Sold 0.167119210299037 of BTC/USD at price: 26810.75496
-2023-05-26 10:05:06,240 - INFO - last trade price is: 26810.75496
-2023-05-26 10:07:42,449 - INFO - buying power is: 41809.16674725738
-2023-05-26 10:07:42,452 - INFO - last trade price is: 26810.75496
-2023-05-26 10:07:42,452 - INFO - holding amount is: 2.125635414
-2023-05-26 10:13:43,133 - INFO - buying power is: 41809.16674725738
-2023-05-26 10:13:43,136 - INFO - last trade price is: 26810.75496
-2023-05-26 10:13:43,136 - INFO - holding amount is: 2.125635414
-2023-05-26 10:19:44,161 - INFO - buying power is: 41809.16674725738
-2023-05-26 10:19:44,163 - INFO - last trade price is: 26810.75496
-2023-05-26 10:19:44,163 - INFO - holding amount is: 2.125635414
-2023-05-26 10:56:56,130 - INFO - buying power is: 41809.16674725738
-2023-05-26 10:56:56,132 - INFO - last trade price is: 26810.75496
-2023-05-26 10:56:56,133 - INFO - holding amount is: 2.125635414
-2023-05-26 13:02:10,619 - INFO - buying power is: 41809.16674725738
-2023-05-26 13:02:10,622 - INFO - last trade price is: 26810.75496
-2023-05-26 13:02:10,622 - INFO - holding amount is: 2.125635414
-2023-05-26 13:21:48,934 - INFO - buying power is: 41809.16674725738
-2023-05-26 13:21:48,937 - INFO - last trade price is: 26810.75496
-2023-05-26 13:21:48,937 - INFO - holding amount is: 2.125635414
-2023-05-26 16:00:25,264 - INFO - Bought 0.04688690983599581 of BTC/USD at price: 26751.0699
-2023-05-26 16:00:25,465 - INFO - last trade price is: 26751.0699
+
+2023-05-28 10:16:09,171 - INFO - buying power is: 62362.35447909694
+2023-05-28 10:16:09,173 - INFO - last trade price is: 27237.7813286
+2023-05-28 10:16:09,174 - INFO - holding amount is: 1.365906949
+2023-05-28 11:37:40,654 - INFO - buying power is: 62362.35447909694
+2023-05-28 11:37:40,657 - INFO - last trade price is: 27237.7813286
+2023-05-28 11:37:40,657 - INFO - holding amount is: 1.365906949
+2023-05-28 11:37:41,205 - INFO - Sold 0.13556886224953413 of BTC/USD at price: 27600.3
+2023-05-28 11:37:41,386 - INFO - last trade price is: 27600.3
+2023-05-28 11:37:58,638 - INFO - buying power is: 66099.59574095554
+2023-05-28 11:37:58,639 - INFO - last trade price is: 27600.3
+2023-05-28 11:37:58,639 - INFO - holding amount is: 1.230338087
+2023-05-28 11:44:05,453 - INFO - buying power is: 66099.59574095554
+2023-05-28 11:44:05,456 - INFO - last trade price is: 27600.3
+2023-05-28 11:44:05,456 - INFO - holding amount is: 1.230338087
+2023-05-28 11:51:38,472 - INFO - buying power is: 66099.59574095554
+2023-05-28 11:51:38,473 - INFO - last trade price is: 27600.3
+2023-05-28 11:51:38,474 - INFO - holding amount is: 1.230338087
+2023-05-28 11:53:22,505 - INFO - buying power is: 66099.59574095554
+2023-05-28 11:53:22,508 - INFO - last trade price is: 27600.3
+2023-05-28 11:53:22,508 - INFO - holding amount is: 1.230338087
+2023-05-28 11:53:37,143 - INFO - Facing a big gap
+2023-05-29 02:29:36,563 - INFO - buying power is: 66099.59574095554
+2023-05-29 02:29:36,565 - INFO - last trade price is: 27600.3
+2023-05-29 02:29:36,566 - INFO - holding amount is: 1.230338087
+2023-05-29 02:29:37,073 - INFO - Sold 0.21332083547987313 of BTC/USD at price: 27887.4007
+2023-05-29 02:29:37,253 - INFO - last trade price is: 27887.4007

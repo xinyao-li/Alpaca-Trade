@@ -8,6 +8,7 @@ import datetime
 import time
 import subprocess
 import sys
+import os
 
 class CryptoTrade:
     # create a logger for record trading history
@@ -82,6 +83,10 @@ class CryptoTrade:
                             self.buy_balance += 1
                             if self.sell_balance > 1:
                                 self.sell_balance -= 1
+                            if self.buy_balance - self.sell_balance >= threshold:
+                                self.buy_balance = self.sell_balance
+                                os.system('say "Buying order reached threshold"')
+
                             self.write_value('./inputs/variable.py',self.last_trade_price)
                             self.buying_power = float(self.api.get_account().cash)
                         except Exception as e:
@@ -113,6 +118,9 @@ class CryptoTrade:
                             self.sell_balance += 1
                             if self.buy_balance > 1:
                                 self.buy_balance -= 1
+                            if self.sell_balance - self.buy_balance >= threshold:
+                                self.sell_balance = self.buy_balance
+                                os.system('say "Selling order reached threshold"')
 
                             self.write_value('./inputs/variable.py', self.last_trade_price)
                             self.buying_power = float(self.api.get_account().cash)
@@ -123,9 +131,12 @@ class CryptoTrade:
                         self.logger1.info('last trade price is: ' + str(self.last_trade_price))
 
                 # When the price is facing a big gap, terminate the program and re-collect the data
-                if low > self.last_trade_price * (1 + threshold) or high < self.last_trade_price * (1 - threshold):
+                else:
                     self.logger1.info('Facing a big gap')
-                    self.refresh_data()
+                    self.terminate_program()
+                    for i in range(0,5):
+                        os.system('say "The price is out of your trading range, please adjust your parameter"')
+                        time.sleep(60)
 
                 time.sleep(1)
                 self.seconds += 1
@@ -154,13 +165,9 @@ class CryptoTrade:
             f.write(f'buy_balance={self.buy_balance}\n')
             f.write(f'sell_balance={self.sell_balance}\n')
 
-    def refresh_data(self):
+    def terminate_program(self):
         sys.exit()
         subprocess.run(["rm", "./analysis/price_data.txt"])
-        collect_data_process = subprocess.Popen(["python3", "./analysis/collect_data.py"])
-        time.sleep(parameter.period)
-        collect_data_process.terminate()
-        subprocess.run(["python3", "main.py"])
 
 
 if __name__ == '__main__':
