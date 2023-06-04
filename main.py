@@ -132,11 +132,8 @@ class CryptoTrade:
 
                 # When the price is facing a big gap, terminate the program and re-collect the data
                 else:
-                    self.logger1.info('Facing a big gap')
-                    self.terminate_program()
-                    for i in range(0,5):
-                        os.system('say "The price is out of your trading range, please adjust your parameter"')
-                        time.sleep(60)
+                    self.logger1.info('The price is out of the trading range')
+                    #os.system('say "The price is out of your trading range, please adjust your parameter"')
 
                 time.sleep(1)
                 self.seconds += 1

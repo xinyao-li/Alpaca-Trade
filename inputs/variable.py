@@ -1,4 +1,4 @@
-last_trade_price=27887.4007
-seconds=20
-buy_balance=1
-sell_balance=4
+last_trade_price=27183.93390586
+seconds=206
+buy_balance=3
+sell_balance=2

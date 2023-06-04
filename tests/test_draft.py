@@ -17,10 +17,6 @@ average_entry_price = float(position.avg_entry_price)
 #with open('variable.py', 'w') as f:
 #    f.write(f'last_trade_price={variable.last_trade_price}\n')
 #    f.write(f'holding_amount={holding_amount}\n')
-'''
-import os
-os.system('say "your program has finished"')
-'''
 def test():
     histpd = {}
     for pd in ['1D', '2D', '3D', '7D']:

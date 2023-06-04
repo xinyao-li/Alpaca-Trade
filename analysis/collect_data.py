@@ -20,21 +20,12 @@ class CryptoData:
     def data_retrieve(self,ticker,should_stop):
         list = []
         list.append(ticker)
-        prev_bid_price = self.api.get_latest_crypto_quotes(list, "us")[ticker].bp
-        prev_ask_price = self.api.get_latest_crypto_quotes(list, "us")[ticker].ap
-        self.logger.info('bid_price:' + str(prev_bid_price))
-        self.logger.info('ask_price:' + str(prev_ask_price))
 
         while not should_stop.is_set():
             bid_price = self.api.get_latest_crypto_quotes(list, "us")[ticker].bp
             ask_price = self.api.get_latest_crypto_quotes(list, "us")[ticker].ap
-            if prev_ask_price != ask_price:
-                self.logger.info('ask_price:' + str(ask_price))
-                prev_ask_price = ask_price
-            if prev_bid_price != bid_price:
-                self.logger.info('bid_price:' + str(bid_price))
-                prev_bid_price = bid_price
-
+            self.logger.info('ask_price:' + str(ask_price))
+            self.logger.info('bid_price:' + str(bid_price))
             time.sleep(1)
 
     def run_trade(self, ticker):
