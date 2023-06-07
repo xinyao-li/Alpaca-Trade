@@ -12,7 +12,7 @@ x = 1
 list = []
 list.append('BTC/USD')
 position = api.get_position('BTCUSD')
-average_entry_price = float(position.avg_entry_price)
+
 def test():
     histpd = {}
     for pd in ['1D', '2D', '3D', '7D']:
@@ -21,6 +21,6 @@ def test():
         timeframe='1Min').df
         histpd[pd] = hist
         print(histpd)
-        print('average entry price is: '+str(average_entry_price))
+
 if __name__ == '__main__':
     test()
