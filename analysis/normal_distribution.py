@@ -127,7 +127,7 @@ class Distribution:
 
         high_price = ask_price_mean + 2 * ask_standard
         low_price = bid_price_mean - 2 * bid_standard
-        return high_price, low_price, bid_standard, ask_standard, map_ask
+        return high_price, low_price
 
 if __name__ == '__main__':
     distribution = Distribution()

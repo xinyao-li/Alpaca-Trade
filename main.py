@@ -170,4 +170,4 @@ class CryptoTrade:
 if __name__ == '__main__':
     crypt_trade = CryptoTrade()
     print("grid trading start")
-    crypt_trade.run_trade(parameter.ticker,parameter.percentage,parameter.buying_power_percentage,parameter.period,parameter.threshold)
+    crypt_trade.run_trade(parameter.ticker, parameter.percentage, parameter.buying_power_percentage, parameter.period, parameter.threshold)
