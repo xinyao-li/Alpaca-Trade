@@ -1,5 +1,5 @@
 import alpaca_trade_api as tradeapi
-from inputs import config, variable,parameter
+from inputs import config
 
 api = tradeapi.REST(key_id=config.API_KEY, secret_key=config.SECRET_KEY, base_url=config.BASE_URL, api_version='v2')
 def test(target_price,cash,qty,percentage,buy_percentage,threshold,last_trade_price,buy_balance):
