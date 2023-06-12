@@ -35,7 +35,6 @@ class CryptoTrade:
     sell_balance = variable.sell_balance
 
 
-    # Function to generate a list of all bought trade you made and sort by buy in price
     def grid_trading(self, ticker, high, low, percentage, buying_power_percentage,period,threshold):
         # Get the buying power from account
         self.buying_power = float(self.api.get_account().cash)
@@ -61,8 +60,6 @@ class CryptoTrade:
                 try:
                     bid_price = self.api.get_latest_crypto_quotes(list, "us")[ticker].bp
                     ask_price = self.api.get_latest_crypto_quotes(list, "us")[ticker].ap
-                    self.logger2.info('ask_price:' + str(ask_price))
-                    self.logger2.info('bid_price:' + str(bid_price))
 
                 except Exception as e:
                     print('last trade price is: '+str(self.last_trade_price))
@@ -113,7 +110,7 @@ class CryptoTrade:
                                 self.logger1.info("Sold " + str(selling_amount) + " of " + str(ticker) + " at price: " + str(bid_price))
                                 self.holding_amount = float(self.api.get_position(ticker_for_holding).qty)
 
-                            # Update the last_trade_price and holding_amount
+                            # Update the last_trade_price and holding_amount, meanwhile, if sell_balance reach the threshold, sent us a warning alert and start over
                             self.last_trade_price = bid_price
                             self.sell_balance += 1
                             if self.buy_balance > 1:
@@ -130,7 +127,7 @@ class CryptoTrade:
 
                         self.logger1.info('last trade price is: ' + str(self.last_trade_price))
 
-                # When the price is facing a big gap, terminate the program and re-collect the data
+                # When the price is facing a big gap
                 else:
                     self.logger1.info('The price is out of the trading range')
                     #os.system('say "The price is out of your trading range, please adjust your parameter"')
@@ -161,11 +158,6 @@ class CryptoTrade:
             f.write(f'seconds={self.seconds}\n')
             f.write(f'buy_balance={self.buy_balance}\n')
             f.write(f'sell_balance={self.sell_balance}\n')
-
-    def terminate_program(self):
-        sys.exit()
-        subprocess.run(["rm", "./analysis/price_data.txt"])
-
 
 if __name__ == '__main__':
     crypt_trade = CryptoTrade()

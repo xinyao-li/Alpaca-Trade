@@ -21,13 +21,13 @@ def test(target_price,cash,qty,percentage,buy_percentage,threshold,last_trade_pr
     print("Average Entry Price: " + str((100000-cash)/qty))
 
 if __name__ == '__main__':
-    target_price = 25000.37
-    cash = 11816.85
-    qty = 3.252066876
+    target_price = 24000.00
+    cash = 7033.13
+    qty = 3.479762814
     percentage = 0.002
-    buy_percentage = 0.03
+    buy_percentage = 0.1
     threshold = 4
-    last_trade_price = 27268.4
-    buy_balance = 2
+    last_trade_price = 25542.7
+    buy_balance = 3
 
     test(target_price,cash,qty,percentage,buy_percentage,threshold,last_trade_price,buy_balance)
