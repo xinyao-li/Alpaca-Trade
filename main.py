@@ -6,8 +6,6 @@ from analysis import normal_distribution
 import logging
 import datetime
 import time
-import subprocess
-import sys
 import os
 
 class CryptoTrade:
